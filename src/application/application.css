@@ -2,7 +2,7 @@
 #leftVBox{
 	-fx-background-color: #2f4f4f;
 }
-#rightAnchor{
+#rightAnchor, #mainPane{
 	-fx-background-color: #ffffff;
 }
 #catalog{

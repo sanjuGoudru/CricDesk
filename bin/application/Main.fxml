@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+<BorderPane fx:id="mainPane" maxHeight="700.0" maxWidth="700.0" minHeight="300.0" minWidth="300.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
 	<left>
-		<VBox fx:id="leftVBox" prefWidth="90.0" BorderPane.alignment="CENTER">
+		<VBox fx:id="leftVBox" maxWidth="100.0" minWidth="110.0" prefWidth="120.0" BorderPane.alignment="CENTER">
 			<children>
 				<Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0">
 					<VBox.margin>
@@ -49,17 +49,23 @@
 					</graphic>
 				</Button>
 			</children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets right="10.0" />
+         </padding>
 		</VBox>
 	</left>
 	<center>
-		<AnchorPane fx:id="rightAnchor" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+		<AnchorPane fx:id="rightAnchor" maxHeight="500.0" maxWidth="500.0" minHeight="100.0" minWidth="100.0" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
 			<children>
-				<ImageView fx:id="main_logo" fitHeight="200.0" fitWidth="300.0" layoutX="97.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+				<ImageView fx:id="main_logo" fitHeight="200.0" fitWidth="300.0" layoutX="97.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
 					<image>
 						<Image url="@../img/logo/main_logo.jpg" />
 					</image>
 				</ImageView>
-				<ImageView fx:id="main_logo2" fitHeight="150.0" fitWidth="100.0" layoutX="341.0" layoutY="291.0" pickOnBounds="true" preserveRatio="true">
+				<ImageView fx:id="main_logo2" fitHeight="41.0" fitWidth="100.0" layoutX="414.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
 					<image>
 						<Image url="@../img/logo/main_logo2.jpg" />
 					</image>

@@ -3,13 +3,6 @@ package application;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import com.sun.javafx.geom.BaseBounds;
-import com.sun.javafx.geom.transform.BaseTransform;
-import com.sun.javafx.jmx.MXNodeAlgorithm;
-import com.sun.javafx.jmx.MXNodeAlgorithmContext;
-import com.sun.javafx.sg.prism.NGNode;
-
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -18,8 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.layout.*;
-import javafx.scene.Node;
-import javafx.scene.Parent;
+import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 
@@ -65,17 +57,16 @@ public class MainController implements Initializable {
 
 	public void mouseClick() {
 		centerGridPane.getChildren().removeAll(main_logo, main_logo2);
-		AnchorPane anchor = null;
+		VBox vbox = null;
 		try {
-			anchor = FXMLLoader.load(getClass().getResource("/application/Catalog.fxml"));
-		} catch (IOException e) {
-			System.out.println("Unable to load  Catalog.fxml");
+			vbox = FXMLLoader.load(getClass().getResource("/application/Catalog.fxml"));
+		}catch (Exception e) {
+			System.out.println("Error loading File");
 			e.printStackTrace();
 		}
-		Label l = (Label) anchor.getChildren().get(0);
-		centerGridPane.add(l, 0, 0, 2, 3);
-		GridPane.setHalignment(l, HPos.CENTER);
-		GridPane.setValignment(l, VPos.CENTER);
+		centerGridPane.add(vbox, 0, 0, 2, 3);
+		GridPane.setHalignment(vbox, HPos.CENTER);
+		GridPane.setValignment(vbox, VPos.CENTER);
 	}		
 
 }

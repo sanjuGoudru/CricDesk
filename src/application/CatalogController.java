@@ -1,19 +1,25 @@
 package application;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
 import javafx.scene.control.TextField;
 
 import javafx.scene.control.ComboBox;
-
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 
 import javafx.scene.layout.GridPane;
 
-public class CatalogController {
+public class CatalogController implements Initializable {
 	@FXML
 	private VBox mainVBox;
 	@FXML
@@ -32,7 +38,19 @@ public class CatalogController {
 	private ComboBox<String> bowlingStyleComboBox;
 	@FXML
 	private Button searchButton;
+	@FXML
+	private ScrollPane scroll;
+	@FXML
+	private GridPane gridItems;
 	public void click(ActionEvent e) {
 		System.out.println("Click!!");
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		for(int i=0;i<100;i++) {
+			gridItems.getChildren().add(new  Label(""+i));
+		}
+		
 	}
 }

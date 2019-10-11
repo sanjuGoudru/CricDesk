@@ -32,6 +32,8 @@ public class MainController implements Initializable {
 	private ImageView main_logo2;
 	@FXML
 	private BorderPane mainPane;
+	
+	VBox vbox;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -57,7 +59,7 @@ public class MainController implements Initializable {
 
 	public void mouseClick() {
 		centerGridPane.getChildren().removeAll(main_logo, main_logo2);
-		VBox vbox = null;
+		vbox = null;
 		try {
 			vbox = FXMLLoader.load(getClass().getResource("/application/Catalog.fxml"));
 		}catch (Exception e) {

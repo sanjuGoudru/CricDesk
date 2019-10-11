@@ -32,9 +32,10 @@ public class MainController implements Initializable {
 	private ImageView main_logo2;
 	@FXML
 	private BorderPane mainPane;
-	
+	@FXML
+	private Button leagueButton;
 	VBox vbox;
-
+	GridPane gp;
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		centerGridPane.heightProperty().addListener(new ChangeListener<Object>() {
@@ -70,4 +71,16 @@ public class MainController implements Initializable {
 		GridPane.setHalignment(vbox, HPos.CENTER);
 		GridPane.setValignment(vbox, VPos.CENTER);
 	}	
+	public void leagueClick() {
+		centerGridPane.getChildren().removeAll(main_logo, main_logo2);
+		try {
+			gp = FXMLLoader.load(getClass().getResource("/application/League.fxml"));
+		}catch (Exception e) {
+			System.out.println("Error loading File");
+			e.printStackTrace();
+		}
+		centerGridPane.add(gp, 0, 0, 2, 3);
+		GridPane.setHalignment(gp, HPos.CENTER);
+		GridPane.setValignment(gp, VPos.CENTER);
+	}
 }

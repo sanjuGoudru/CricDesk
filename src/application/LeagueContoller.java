@@ -46,5 +46,18 @@ public class LeagueContoller {
 		GridPane.setHalignment(gp, HPos.CENTER);
 		GridPane.setValignment(gp, VPos.CENTER);
 }
+	public void clickcpl(ActionEvent event) {
+		try {
+			gp = FXMLLoader.load(getClass().getResource("/application/CplLeague.fxml"));
+			
+		}catch (Exception e) {
+			System.out.println("Error loading File");
+			e.printStackTrace();
+	}
+		grid1.getChildren().clear();
+		grid1.add(gp, 0, 0, 2, 2);
+		GridPane.setHalignment(gp, HPos.CENTER);
+		GridPane.setValignment(gp, VPos.CENTER);
+}
 	
 }

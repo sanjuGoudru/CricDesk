@@ -15,14 +15,4 @@ public class Demo {
 	}
 }
 
-class Log {
-	static private String s = null;
 
-	static void add(String a) {
-		s += a + "\n";
-	}
-
-	static void print() {
-		System.out.println(s);
-	}
-}

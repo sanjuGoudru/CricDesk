@@ -62,7 +62,7 @@ public class MainController implements Initializable {
 	}
 
 	public void mouseClick() {
-		centerGridPane.getChildren().removeAll(main_logo, main_logo2);
+		centerGridPane.getChildren().clear();
 		vbox = null;
 		try {
 			vbox = FXMLLoader.load(getClass().getResource("/application/Catalog.fxml"));
@@ -75,7 +75,7 @@ public class MainController implements Initializable {
 		GridPane.setValignment(vbox, VPos.CENTER);
 	}	
 	public void leagueClick() {
-		centerGridPane.getChildren().removeAll(main_logo, main_logo2);
+		centerGridPane.getChildren().clear();
 		try {
 			gp = FXMLLoader.load(getClass().getResource("/application/League.fxml"));
 		}catch (Exception e) {

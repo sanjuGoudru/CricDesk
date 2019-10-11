@@ -26,7 +26,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="bbl" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Button fx:id="bbl" mnemonicParsing="false" onAction="#clickbbl" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <graphic>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>

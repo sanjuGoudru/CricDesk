@@ -69,6 +69,5 @@ public class MainController implements Initializable {
 		centerGridPane.add(vbox, 0, 0, 2, 3);
 		GridPane.setHalignment(vbox, HPos.CENTER);
 		GridPane.setValignment(vbox, VPos.CENTER);
-	}		
-
+	}	
 }

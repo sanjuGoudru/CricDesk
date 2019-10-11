@@ -17,7 +17,7 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button fx:id="ipl" alignment="CENTER" mnemonicParsing="false" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Button fx:id="ipl" alignment="CENTER" mnemonicParsing="false" onAction="#clickipl" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <graphic>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>

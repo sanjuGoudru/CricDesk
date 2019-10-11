@@ -41,16 +41,14 @@ public class CatalogController implements Initializable {
 	@FXML
 	private ScrollPane scroll;
 	@FXML
-	private GridPane gridItems;
+	private VBox contentVBox;
 	public void click(ActionEvent e) {
 		System.out.println("Click!!");
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		for(int i=0;i<100;i++) {
-			gridItems.getChildren().add(new  Label(""+i));
-		}
+		
 		
 	}
 }

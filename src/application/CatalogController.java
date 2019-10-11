@@ -10,6 +10,7 @@ import DAO.*;
 import Main.Player;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -48,13 +49,18 @@ public class CatalogController implements Initializable {
 	private ScrollPane scroll;
 	@FXML
 	private VBox contentVBox;
-	public void click(ActionEvent e) {
-		System.out.println("Click!!");
-	}
+	@FXML
+	private GridPane contentGrid;
+	PlayerDAO pdao;
+	String role[]= {"ANYTHING","BATSMAN","BOWLER","BATTING ALLROUNDER","BOWLING  ALLROUNDER"};
+	String country[]= {"ANYTHING","INDIA","AUSTRALIA","ENGLAND","SOUTH AFRICA","NEW ZEALAND","PAKISTAN","SRI LANKA","WEST INDIES","BANGLADESH","AFGHANISTAN"};
+	String battingStyle[]= {"ANYTHING","RIGHT HANDED","LEFT HANDED"};
+	String bowlingStyle[] = {"ANYTHING","RIGHT PACER","RIGHT SPINNER","LEFT PACER","LEFT SPINNER"};
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		PlayerDAO pdao = new PlayerDAO();
+		setComboBoxes();
+		pdao = new PlayerDAO();
 		pdao.connect();
 		ArrayList<Player> players=null;
 		try {
@@ -77,17 +83,59 @@ public class CatalogController implements Initializable {
 		gp.getChildren().set(2, new Label(players.get(i).role+""));
 		contentVBox.getChildren().add(gp);
 		}
-		
+		pdao.close();
+	}
+	public void setComboBoxes() {
+		roleComboBox.setItems(FXCollections.observableArrayList(role));
+		countryComboBox.setItems(FXCollections.observableArrayList(country));
+		battingStyleComboBox.setItems(FXCollections.observableArrayList(battingStyle));
+		bowlingStyleComboBox.setItems(FXCollections.observableArrayList(bowlingStyle));
+		roleComboBox.getSelectionModel().selectFirst();
+		countryComboBox.getSelectionModel().selectFirst();
+		battingStyleComboBox.getSelectionModel().selectFirst();
+		bowlingStyleComboBox.getSelectionModel().selectFirst();
 	}
 	public GridPane getPlayerContent() throws IOException {
 		GridPane gp=null;
 		try {
 			gp =  FXMLLoader.load(getClass().getResource("/application/PlayerContent.fxml"));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			System.out.println("Error getting PlayerContent");
 			throw e;
 		}
 		return gp;
+	}
+	public void search(ActionEvent ae) {
+		String name = nameTextField.getText().trim();
+		if(name==null||name.isEmpty())
+			name="#";
+		int role = roleComboBox.getSelectionModel().getSelectedIndex();
+		int  country = countryComboBox.getSelectionModel().getSelectedIndex();
+		int battingStyle = battingStyleComboBox.getSelectionModel().getSelectedIndex();
+		int bowlingStyle = bowlingStyleComboBox.getSelectionModel().getSelectedIndex();
+		pdao.connect();
+		String query = "$"+name+"$"+role+"$"+country+"$"+battingStyle+"$"+bowlingStyle;
+		System.out.println(query);
+		ArrayList<Player>  players=null;
+		try {
+			players = pdao.findPlayer(query);
+		} catch (IllegalArgumentException | SQLException e) {
+			Log.print();
+			e.printStackTrace();
+		}
+		contentVBox.getChildren().clear();
+		GridPane gp=null;
+		for(int i=0;i<players.size();i++) {
+			try {
+				gp = getPlayerContent();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		gp.getChildren().set(0, new Label(players.get(i).name));
+		gp.getChildren().set(1, new Label(players.get(i).country+""));
+		gp.getChildren().set(2, new Label(players.get(i).role+""));
+		contentVBox.getChildren().add(gp);
+		}
 	}
 }

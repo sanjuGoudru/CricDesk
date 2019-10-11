@@ -70,19 +70,7 @@ public class CatalogController implements Initializable {
 			System.out.println("Error");
 			Log.print();
 		}
-		GridPane gp=null;
-		for(int i=0;i<players.size();i++) {
-			try {
-				gp = getPlayerContent();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		gp.getChildren().set(0, new Label(players.get(i).name));
-		gp.getChildren().set(1, new Label(players.get(i).country+""));
-		gp.getChildren().set(2, new Label(players.get(i).role+""));
-		contentVBox.getChildren().add(gp);
-		}
+		addContent(players);
 		pdao.close();
 	}
 	public void setComboBoxes() {
@@ -124,17 +112,17 @@ public class CatalogController implements Initializable {
 			e.printStackTrace();
 		}
 		contentVBox.getChildren().clear();
+		addContent(players);
+	}
+	public void addContent(ArrayList<Player>  players) {
 		GridPane gp=null;
 		for(int i=0;i<players.size();i++) {
 			try {
 				gp = getPlayerContent();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		gp.getChildren().set(0, new Label(players.get(i).name));
-		gp.getChildren().set(1, new Label(players.get(i).country+""));
-		gp.getChildren().set(2, new Label(players.get(i).role+""));
 		contentVBox.getChildren().add(gp);
 		}
 	}

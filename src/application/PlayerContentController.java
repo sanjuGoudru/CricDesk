@@ -6,5 +6,5 @@ import javafx.scene.control.Label;
 
 public class PlayerContentController {
 	@FXML
-	private Label name;
+	private Label name;     
 }

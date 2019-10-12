@@ -140,6 +140,17 @@ public class CatalogController implements Initializable {
 				@Override
 				public void handle(Event event) {
 					System.out.println("Clicked on "+l.getText());
+					mainVBox.getChildren().clear();
+					GridPane playerGP=null;
+					try {
+						playerGP = FXMLLoader.load(getClass().getResource("/application/Player.fxml"));
+					} catch (IOException e) {
+						System.out.println("Failed to load player GridPane");
+						e.printStackTrace();
+					}
+					mainVBox.getChildren().add(playerGP);
+					playerGP.prefHeightProperty().bind(mainVBox.heightProperty());
+					playerGP.prefWidthProperty().bind(mainVBox.widthProperty());
 				}
 			});
 			contentVBox.getChildren().add(gp);

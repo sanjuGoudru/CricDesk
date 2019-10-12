@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane fx:id="grid4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="application.TblController">
+<GridPane fx:id="grid4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TblController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -22,7 +22,7 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button mnemonicParsing="false">
+      <Button fx:id="dur$7" mnemonicParsing="false">
          <graphic>
             <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -31,7 +31,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="ess" mnemonicParsing="false" GridPane.columnIndex="1">
+      <Button fx:id="ess$5" mnemonicParsing="false" GridPane.columnIndex="1">
          <graphic>
             <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -40,7 +40,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="glo" mnemonicParsing="false" GridPane.rowIndex="1">
+      <Button fx:id="glo$2" mnemonicParsing="false" GridPane.rowIndex="1">
          <graphic>
             <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -49,7 +49,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="hamp" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <Button fx:id="hamp$8" mnemonicParsing="false" onAction="#click" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <graphic>
             <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -58,7 +58,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="kent" mnemonicParsing="false" GridPane.rowIndex="2">
+      <Button fx:id="kent$11" mnemonicParsing="false" onAction="#click" GridPane.rowIndex="2">
          <graphic>
             <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -67,7 +67,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="lanc" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <Button fx:id="lanc$10" mnemonicParsing="false" onAction="#click" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <graphic>
             <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -76,7 +76,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="leic" mnemonicParsing="false" GridPane.rowIndex="3">
+      <Button fx:id="leic$4" mnemonicParsing="false" onAction="#click" GridPane.rowIndex="3">
          <graphic>
             <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -85,7 +85,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="mid" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <Button fx:id="mid$9" mnemonicParsing="false" onAction="#click" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <graphic>
             <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -94,7 +94,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="som" mnemonicParsing="false" GridPane.rowIndex="4">
+      <Button fx:id="som$1" mnemonicParsing="false" onAction="#click" GridPane.rowIndex="4">
          <graphic>
             <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -103,7 +103,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="sur" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="4">
+      <Button fx:id="sur$13" mnemonicParsing="false" onAction="#click" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <graphic>
             <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -112,7 +112,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="sus" mnemonicParsing="false" GridPane.rowIndex="5">
+      <Button fx:id="sus$12" mnemonicParsing="false" onAction="#click" GridPane.rowIndex="5">
          <graphic>
             <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -121,7 +121,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="war" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="5">
+      <Button fx:id="war$3" mnemonicParsing="false" onAction="#click" GridPane.columnIndex="1" GridPane.rowIndex="5">
          <graphic>
             <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -130,7 +130,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="worc" mnemonicParsing="false" GridPane.rowIndex="6">
+      <Button fx:id="worc$14" mnemonicParsing="false" onAction="#click" GridPane.rowIndex="6">
          <graphic>
             <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -139,7 +139,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="york" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="6">
+      <Button fx:id="york$6" mnemonicParsing="false" onAction="#click" GridPane.columnIndex="1" GridPane.rowIndex="6">
          <graphic>
             <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>

@@ -81,7 +81,7 @@
          <children>
             <ScrollPane fx:id="scroll" fitToWidth="true" hbarPolicy="NEVER" maxHeight="800.0" maxWidth="900.0" minHeight="50.0" minWidth="500.0" vbarPolicy="ALWAYS" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <content>
-                  <VBox fx:id="contentVBox" onMouseClicked="#click" prefHeight="200.0" prefWidth="100.0" />
+                  <VBox fx:id="contentVBox"  prefHeight="200.0" prefWidth="100.0" />
                </content></ScrollPane>
          </children>
          <VBox.margin>

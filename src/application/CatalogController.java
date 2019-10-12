@@ -48,17 +48,23 @@ public class CatalogController implements Initializable {
 	@FXML
 	private GridPane contentGrid;
 	PlayerDAO pdao;
-	String role[]= {"ANYTHING","BATSMAN","BOWLER","BATTING ALLROUNDER","BOWLING  ALLROUNDER"};
-	String country[]= {"ANYTHING","INDIA","AUSTRALIA","ENGLAND","SOUTH AFRICA","NEW ZEALAND","PAKISTAN","SRI LANKA","WEST INDIES","BANGLADESH","AFGHANISTAN"};
-	String battingStyle[]= {"ANYTHING","RIGHT HANDED","LEFT HANDED"};
-	String bowlingStyle[] = {"ANYTHING","RIGHT PACER","RIGHT SPINNER","LEFT PACER","LEFT SPINNER"};
+	String role[] = { "ANYTHING", "BATSMAN", "BOWLER", "BATTING ALLROUNDER", "BOWLING  ALLROUNDER" };
+	String country[] = { "ANYTHING", "INDIA", "AUSTRALIA", "ENGLAND", "SOUTH AFRICA", "NEW ZEALAND", "PAKISTAN",
+			"SRI LANKA", "WEST INDIES", "BANGLADESH", "AFGHANISTAN" };
+	String battingStyle[] = { "ANYTHING", "RIGHT HANDED", "LEFT HANDED" };
+	String bowlingStyle[] = { "ANYTHING", "RIGHT PACER", "RIGHT SPINNER", "LEFT PACER", "LEFT SPINNER" };
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		setComboBoxes();
+		setInitialData();
+		
+	}
+
+	public void setInitialData() {
 		pdao = new PlayerDAO();
 		pdao.connect();
-		ArrayList<Player> players=null;
+		ArrayList<Player> players = null;
 		try {
 			players = pdao.findPlayer("$#$0$0$0$0");
 			System.out.println(players);
@@ -69,6 +75,7 @@ public class CatalogController implements Initializable {
 		addContent(players);
 		pdao.close();
 	}
+
 	public void setComboBoxes() {
 		roleComboBox.setItems(FXCollections.observableArrayList(role));
 		countryComboBox.setItems(FXCollections.observableArrayList(country));
@@ -79,28 +86,30 @@ public class CatalogController implements Initializable {
 		battingStyleComboBox.getSelectionModel().selectFirst();
 		bowlingStyleComboBox.getSelectionModel().selectFirst();
 	}
+
 	public GridPane getPlayerContent() throws IOException {
-		GridPane gp=null;
+		GridPane gp = null;
 		try {
-			gp =  FXMLLoader.load(getClass().getResource("/application/PlayerContent.fxml"));
+			gp = FXMLLoader.load(getClass().getResource("/application/PlayerContent.fxml"));
 		} catch (IOException e) {
 			System.out.println("Error getting PlayerContent");
 			throw e;
 		}
 		return gp;
 	}
+
 	public void search(ActionEvent ae) {
 		String name = nameTextField.getText().trim();
-		if(name==null||name.isEmpty())
-			name="#";
+		if (name == null || name.isEmpty())
+			name = "#";
 		int role = roleComboBox.getSelectionModel().getSelectedIndex();
-		int  country = countryComboBox.getSelectionModel().getSelectedIndex();
+		int country = countryComboBox.getSelectionModel().getSelectedIndex();
 		int battingStyle = battingStyleComboBox.getSelectionModel().getSelectedIndex();
 		int bowlingStyle = bowlingStyleComboBox.getSelectionModel().getSelectedIndex();
 		pdao.connect();
-		String query = "$"+name+"$"+role+"$"+country+"$"+battingStyle+"$"+bowlingStyle;
+		String query = "$" + name + "$" + role + "$" + country + "$" + battingStyle + "$" + bowlingStyle;
 		System.out.println(query);
-		ArrayList<Player>  players=null;
+		ArrayList<Player> players = null;
 		try {
 			players = pdao.findPlayer(query);
 		} catch (IllegalArgumentException | SQLException e) {
@@ -110,17 +119,20 @@ public class CatalogController implements Initializable {
 		contentVBox.getChildren().clear();
 		addContent(players);
 	}
-	public void addContent(ArrayList<Player>  players) {
-		GridPane gp=null;
-		for(int i=0;i<players.size();i++) {
+
+	public void addContent(ArrayList<Player> players) {
+		GridPane gp = null;
+		for (int i = 0; i < players.size(); i++) {
 			try {
 				gp = getPlayerContent();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		gp.getChildren().set(0, new Label(players.get(i).name));
-		contentVBox.getChildren().add(gp);
+			gp.getChildren().set(0, new Label(players.get(i).name));
+			gp.getChildren().get(0).setId("$"+players.get(i).id+"");
+			System.out.println(gp.getChildren().get(0).getId());
+			contentVBox.getChildren().add(gp);
 		}
 	}
-	
+
 }

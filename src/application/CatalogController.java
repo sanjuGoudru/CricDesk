@@ -10,6 +10,8 @@ import DAO.*;
 import Main.Player;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -129,8 +131,17 @@ public class CatalogController implements Initializable {
 				e.printStackTrace();
 			}
 			gp.getChildren().set(0, new Label(players.get(i).name));
-			gp.getChildren().get(0).setId("$"+players.get(i).id+"");
-			System.out.println(gp.getChildren().get(0).getId());
+			Label l = (Label)gp.getChildren().get(0);
+			l.setId("$"+players.get(i).id+"");
+			System.out.println(l.getId());
+			
+			l.setOnMouseClicked(new EventHandler<Event>() {
+
+				@Override
+				public void handle(Event event) {
+					System.out.println("Clicked on "+l.getText());
+				}
+			});
 			contentVBox.getChildren().add(gp);
 		}
 	}

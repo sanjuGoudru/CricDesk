@@ -48,6 +48,7 @@ public class LeagueContoller {
 		GridPane.setHalignment(gp, HPos.CENTER);
 		GridPane.setValignment(gp, VPos.CENTER);
 	}
+
 	public void clickcpl(ActionEvent event) {
 		try {
 			gp = FXMLLoader.load(getClass().getResource("/application/CplLeague.fxml"));
@@ -61,6 +62,7 @@ public class LeagueContoller {
 		GridPane.setHalignment(gp, HPos.CENTER);
 		GridPane.setValignment(gp, VPos.CENTER);
 	}
+
 	public void clicktbl(ActionEvent event) {
 		try {
 			gp = FXMLLoader.load(getClass().getResource("/application/TblLeague.fxml"));

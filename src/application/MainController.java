@@ -1,11 +1,7 @@
 package application;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import javafx.beans.InvalidationListener;
-import javafx.beans.property.Property;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -14,7 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.layout.*;
-import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 
@@ -39,6 +34,7 @@ public class MainController implements Initializable {
 	private Button leagueButton;
 	VBox vbox;
 	GridPane gp;
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		centerGridPane.heightProperty().addListener(new ChangeListener<Object>() {
@@ -66,19 +62,20 @@ public class MainController implements Initializable {
 		vbox = null;
 		try {
 			vbox = FXMLLoader.load(getClass().getResource("/application/Catalog.fxml"));
-		}catch (Exception e) {
+		} catch (Exception e) {
 			System.out.println("Error loading File");
 			e.printStackTrace();
 		}
 		centerGridPane.add(vbox, 0, 0, 2, 3);
 		GridPane.setHalignment(vbox, HPos.CENTER);
 		GridPane.setValignment(vbox, VPos.CENTER);
-	}	
+	}
+
 	public void leagueClick() {
 		centerGridPane.getChildren().clear();
 		try {
 			gp = FXMLLoader.load(getClass().getResource("/application/League.fxml"));
-		}catch (Exception e) {
+		} catch (Exception e) {
 			System.out.println("Error loading File");
 			e.printStackTrace();
 		}

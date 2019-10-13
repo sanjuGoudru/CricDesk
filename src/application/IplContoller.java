@@ -38,7 +38,7 @@ public class IplContoller {
 		int tid = Integer.parseInt(st.nextToken());
 		LeagueDAO league = new LeagueDAO();
 		league.connect();
-		ArrayList<Player> players=null;
+		ArrayList<Player> players = null;
 		try {
 			players = league.getAllPlayers(tid, 1);
 			System.out.println(players);
@@ -46,7 +46,7 @@ public class IplContoller {
 			System.out.println("Failed to get players");
 			e1.printStackTrace();
 		}
-		
+
 	}
 
 }

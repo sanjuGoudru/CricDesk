@@ -5,7 +5,7 @@ import java.sql.*;
 import java.util.*;
 
 public class PlayerDAO {
-	Connection con=null;
+	Connection con = null;
 	static final String url = "jdbc:mysql://localhost:3306/cricket";
 	static final String username = "root";
 	static final String password = "root";
@@ -28,7 +28,6 @@ public class PlayerDAO {
 		}
 	}
 
-
 	public Player getPlayer(int id) {
 
 		Player p = null;
@@ -48,7 +47,9 @@ public class PlayerDAO {
 			bowlStyle = rs.getInt(6);
 			dob = rs.getString(7);
 		} catch (Exception e) {
-			System.out.println("Error in creating statement ");
+			System.out.println("Error in creating statement");
+			if (rs == null)
+				System.out.println("ResultSet object is null");
 			e.printStackTrace();
 		}
 		p = new Player(id, name, role, country, batStyle, bowlStyle, dob);
@@ -78,9 +79,8 @@ public class PlayerDAO {
 		if (arg[0].equals("#")) {
 			Log.add("Name is empty");
 			name = "";
-		}
-		else {
-			Log.add("Name is "+arg[0]);
+		} else {
+			Log.add("Name is " + arg[0]);
 			name = arg[0];
 		}
 

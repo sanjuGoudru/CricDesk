@@ -10,28 +10,38 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="mainPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="500.0" minWidth="500.0" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+<BorderPane fx:id="mainPane"
+	maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+	minHeight="500.0" minWidth="500.0" prefHeight="500.0" prefWidth="800.0"
+	xmlns="http://javafx.com/javafx/8.0.171"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="application.MainController">
 	<left>
-		<VBox fx:id="leftVBox" maxWidth="100.0" minWidth="110.0" prefWidth="120.0" BorderPane.alignment="CENTER">
+		<VBox fx:id="leftVBox" maxWidth="100.0" minWidth="110.0"
+			prefWidth="120.0" BorderPane.alignment="CENTER">
 			<children>
-				<Button mnemonicParsing="false" onAction="#mouseClick" prefHeight="50.0" prefWidth="50.0">
+				<Button mnemonicParsing="false" onAction="#mouseClick"
+					prefHeight="50.0" prefWidth="50.0">
 					<VBox.margin>
 						<Insets bottom="20.0" left="20.0" right="20.0" top="50.0" />
 					</VBox.margin>
 					<graphic>
-						<ImageView fx:id="catalog" fitHeight="60.0" fitWidth="60.0">
+						<ImageView fx:id="catalog" fitHeight="60.0"
+							fitWidth="60.0">
 							<image>
 								<Image url="@../img/logo/catalog.png" />
 							</image>
 						</ImageView>
 					</graphic>
 				</Button>
-				<Button fx:id="leagueButton" mnemonicParsing="false" onAction="#leagueClick" prefHeight="50.0" prefWidth="50.0">
+				<Button fx:id="leagueButton" mnemonicParsing="false"
+					onAction="#leagueClick" prefHeight="50.0" prefWidth="50.0">
 					<VBox.margin>
 						<Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
 					</VBox.margin>
 					<graphic>
-						<ImageView fx:id="league" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+						<ImageView fx:id="league" fitHeight="60.0"
+							fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
 							<image>
 								<Image url="@../img/logo/league.png" />
 							</image>
@@ -43,7 +53,8 @@
 						<Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
 					</VBox.margin>
 					<graphic>
-						<ImageView fx:id="about" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+						<ImageView fx:id="about" fitHeight="60.0"
+							fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
 							<image>
 								<Image url="@../img/logo/about.png" />
 							</image>
@@ -60,18 +71,30 @@
 		</VBox>
 	</left>
 	<center>
-		<GridPane fx:id="centerGridPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="400.0" minWidth="500.0" prefHeight="500.0" prefWidth="790.0" BorderPane.alignment="CENTER">
+		<GridPane fx:id="centerGridPane"
+			maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+			minHeight="400.0" minWidth="500.0" prefHeight="500.0"
+			prefWidth="790.0" BorderPane.alignment="CENTER">
 			<columnConstraints>
-				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+				<ColumnConstraints hgrow="SOMETIMES"
+					minWidth="10.0" prefWidth="100.0" />
+				<ColumnConstraints hgrow="SOMETIMES"
+					minWidth="10.0" prefWidth="100.0" />
 			</columnConstraints>
 			<rowConstraints>
-				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0"
+					vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0"
+					vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0"
+					vgrow="SOMETIMES" />
 			</rowConstraints>
 			<children>
-				<ImageView fx:id="main_logo2" fitHeight="41.0" fitWidth="100.0" opacity="0.77" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+				<ImageView fx:id="main_logo2" fitHeight="41.0"
+					fitWidth="100.0" opacity="0.77" pickOnBounds="true"
+					preserveRatio="true" GridPane.columnIndex="1"
+					GridPane.halignment="RIGHT" GridPane.rowIndex="2"
+					GridPane.valignment="CENTER">
 					<image>
 						<Image url="@../img/logo/main_logo2.jpg" />
 					</image>
@@ -79,7 +102,10 @@
 						<Insets bottom="50.0" right="50.0" />
 					</GridPane.margin>
 				</ImageView>
-				<ImageView fx:id="main_logo" fitHeight="200.0" fitWidth="371.0" pickOnBounds="true" preserveRatio="true" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="CENTER">
+				<ImageView fx:id="main_logo" fitHeight="200.0"
+					fitWidth="371.0" pickOnBounds="true" preserveRatio="true"
+					GridPane.columnSpan="2" GridPane.halignment="CENTER"
+					GridPane.rowSpan="2" GridPane.valignment="CENTER">
 					<image>
 						<Image url="@../img/logo/main_logo.jpg" />
 					</image>

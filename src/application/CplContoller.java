@@ -26,6 +26,7 @@ public class CplContoller {
 	private Button tkr$1;
 	@FXML
 	private Button gaw$3;
+
 	public void click(ActionEvent e) {
 		Button b = (Button) e.getSource();
 		StringTokenizer st = new StringTokenizer(b.getId(), "$");
@@ -33,7 +34,7 @@ public class CplContoller {
 		int tid = Integer.parseInt(st.nextToken());
 		LeagueDAO league = new LeagueDAO();
 		league.connect();
-		ArrayList<Player> players=null;
+		ArrayList<Player> players = null;
 		try {
 			players = league.getAllPlayers(tid, 3);
 			System.out.println(players);
@@ -41,6 +42,6 @@ public class CplContoller {
 			System.out.println("Failed to get players");
 			e1.printStackTrace();
 		}
-		
+
 	}
 }

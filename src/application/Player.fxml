@@ -11,7 +11,8 @@
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity"
 	minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0"
 	prefWidth="908.0" xmlns="http://javafx.com/javafx/8.0.171"
-	xmlns:fx="http://javafx.com/fxml/1">
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="application.PlayerController">
 	<columnConstraints>
 		<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
 			prefWidth="100.0" />
@@ -205,7 +206,8 @@
 						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
 					</padding>
 				</Label>
-				<ComboBox fx:id="careerComboBox" prefWidth="150.0"
+				<ComboBox fx:id="careerComboBox"
+					onAction="#careerComboSelected" prefWidth="150.0"
 					promptText="Select Career" GridPane.columnIndex="1">
 					<GridPane.margin>
 						<Insets bottom="10.0" left="60.0" right="100.0" top="10.0" />

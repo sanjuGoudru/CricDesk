@@ -60,7 +60,7 @@ public class CatalogController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		setComboBoxes();
 		setInitialData();
-		
+
 	}
 
 	public void setInitialData() {
@@ -131,17 +131,18 @@ public class CatalogController implements Initializable {
 				e.printStackTrace();
 			}
 			gp.getChildren().set(0, new Label(players.get(i).name));
-			Label l = (Label)gp.getChildren().get(0);
-			l.setId("$"+players.get(i).id+"");
+			Label l = (Label) gp.getChildren().get(0);
+			l.setId("$" + players.get(i).id + "");
 			System.out.println(l.getId());
-			
+
 			l.setOnMouseClicked(new EventHandler<Event>() {
 
 				@Override
 				public void handle(Event event) {
-					System.out.println("Clicked on "+l.getText());
+					CurrentPlayer.setID(l.getId());
+					System.out.println("Clicked on " + l.getText());
 					mainVBox.getChildren().clear();
-					GridPane playerGP=null;
+					GridPane playerGP = null;
 					try {
 						playerGP = FXMLLoader.load(getClass().getResource("/application/Player.fxml"));
 					} catch (IOException e) {

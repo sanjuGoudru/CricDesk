@@ -1,6 +1,5 @@
 package DAO;
 
-import java.sql.SQLException;
 import java.util.*;
 import Main.*;
 
@@ -14,5 +13,3 @@ public class Demo {
 		ldao.close();
 	}
 }
-
-

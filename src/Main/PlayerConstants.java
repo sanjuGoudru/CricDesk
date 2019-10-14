@@ -45,50 +45,53 @@ public final class PlayerConstants {
 		public static final int BANGLADESH = 9;
 		public static final int AFGHANISTAN = 10;
 	}
-	public static class League{
-		public static final int IPL=1;
-		public static final int BBL=2;
-		public static final int CPL=3;
-		public static final int TBL=4;
+
+	public static class League {
+		public static final int IPL = 1;
+		public static final int BBL = 2;
+		public static final int CPL = 3;
+		public static final int TBL = 4;
 	}
-	public static class Team{
-		public static final int RCB=1;
-		public static final int CSK=2;
-		public static final int MI=3;
-		public static final int SRH=4;
-		public static final int KXIP=5;
-		public static final int RR=6;
-		public static final int DC=7;
-		public static final int KKR=8;
-		public static final int ST=1;
-		public static final int SS=2;
-		public static final int MS=3;
-		public static final int MR=4;
-		public static final int PS=5;
-		public static final int BH=6;
-		public static final int AS=7;
-		public static final int HH=8;
-		public static final int TKR=1;
-		public static final int JT=2;
-		public static final int GAW=3;
-		public static final int SNP=4;
-		public static final int BT=5;
-		public static final int STZ=6;
-		public static final int SOM=1;
-		public static final int GLO=2;
-		public static final int WAR=3;
-		public static final int LEIS=4;
-		public static final int ESS=5;
-		public static final int YOR=6;
-		public static final int DUR=7;
-		public static final int HAM=8;
-		public static final int MIDL=9;
-		public static final int LAN=10;
-		public static final int KEN=11;
-		public static final int SUS=12;
-		public static final int SUR=13;
-		public static final int WARC=14;
+
+	public static class Team {
+		public static final int RCB = 1;
+		public static final int CSK = 2;
+		public static final int MI = 3;
+		public static final int SRH = 4;
+		public static final int KXIP = 5;
+		public static final int RR = 6;
+		public static final int DC = 7;
+		public static final int KKR = 8;
+		public static final int ST = 1;
+		public static final int SS = 2;
+		public static final int MS = 3;
+		public static final int MR = 4;
+		public static final int PS = 5;
+		public static final int BH = 6;
+		public static final int AS = 7;
+		public static final int HH = 8;
+		public static final int TKR = 1;
+		public static final int JT = 2;
+		public static final int GAW = 3;
+		public static final int SNP = 4;
+		public static final int BT = 5;
+		public static final int STZ = 6;
+		public static final int SOM = 1;
+		public static final int GLO = 2;
+		public static final int WAR = 3;
+		public static final int LEIS = 4;
+		public static final int ESS = 5;
+		public static final int YOR = 6;
+		public static final int DUR = 7;
+		public static final int HAM = 8;
+		public static final int MIDL = 9;
+		public static final int LAN = 10;
+		public static final int KEN = 11;
+		public static final int SUS = 12;
+		public static final int SUR = 13;
+		public static final int WARC = 14;
 	}
+
 	public static String getRole(int role) {
 		String s = "";
 		switch (role) {
@@ -188,13 +191,167 @@ public final class PlayerConstants {
 
 	public static String getLeague(int lid) {
 		String s = null;
-
+		switch (lid) {
+		case League.IPL:
+			s = "IPL";
+			break;
+		case League.BBL:
+			s = "BBL";
+			break;
+		case League.CPL:
+			s = "CPL";
+			break;
+		case League.TBL:
+			s = "TBL";
+			break;
+		}
 		return s;
 	}
 
 	public static String getTeam(int lid, int tid) {
 		String s = null;
+		switch (lid) {
+		case League.IPL:
+			s = getIPLTeam(tid);
+			break;
+		case League.BBL:
+			s = getBBLTeam(tid);
+		case League.CPL:
+			s = getCPLTeam(tid);
+		case League.TBL:
+			s = getTBLTeam(tid);
+		}
+		return s;
+	}
 
+	private static String getIPLTeam(int tid) {
+		String s = null;
+		switch (tid) {
+		case Team.RCB:
+			s = "RCB";
+			break;
+		case Team.CSK:
+			s = "CSK";
+			break;
+		case Team.MI:
+			s = "MI";
+		case Team.SRH:
+			s = "SRH";
+			break;
+		case Team.KXIP:
+			s = "KXIP";
+		case Team.RR:
+			s = "RR";
+			break;
+		case Team.DC:
+			s = "DC";
+			break;
+		case Team.KKR:
+			s = "KKR";
+			break;
+		}
+		return s;
+	}
+
+	private static String getBBLTeam(int tid) {
+		String s = null;
+		switch (tid) {
+		case Team.ST:
+			s = "ST";
+			break;
+		case Team.SS:
+			s = "SS";
+			break;
+		case Team.MS:
+			s = "MS";
+			break;
+		case Team.MR:
+			s = "MR";
+			break;
+		case Team.PS:
+			s = "PS";
+			break;
+		case Team.BH:
+			s = "BH";
+			break;
+		case Team.AS:
+			s = "AS";
+			break;
+		}
+		return s;
+	}
+
+	private static String getCPLTeam(int tid) {
+		String s = null;
+		switch (tid) {
+		case Team.TKR:
+			s = "TKR";
+			break;
+		case Team.JT:
+			s = "BT";
+			break;
+		case Team.GAW:
+			s = "GAW";
+			break;
+		case Team.SNP:
+			s = "SNP";
+			break;
+		case Team.BT:
+			s = "BT";
+			break;
+		case Team.STZ:
+			s = "STZ";
+			break;
+		}
+		return s;
+	}
+
+	private static String getTBLTeam(int tid) {
+		String s = null;
+		switch (tid) {
+		case Team.SOM:
+			s = "SOM";
+			break;
+		case Team.GLO:
+			s = "GLO";
+			break;
+		case Team.WAR:
+			s = "WAR";
+			break;
+		case Team.LEIS:
+			s = "LEIS";
+			break;
+		case Team.DUR:
+			s = "DUR";
+			break;
+		case Team.ESS:
+			s = "ESS";
+			break;
+		case Team.HAM:
+			s = "HAM";
+			break;
+		case Team.KEN:
+			s = "KENT";
+			break;
+		case Team.LAN:
+			s = "LAN";
+			break;
+		case Team.MIDL:
+			s = "MIDL";
+			break;
+		case Team.SUR:
+			s = "SUR";
+			break;
+		case Team.SUS:
+			s = "SUS";
+			break;
+		case Team.WARC:
+			s = "WARC";
+			break;
+		case Team.YOR:
+			s = "YORK";
+			break;
+		}
 		return s;
 	}
 }

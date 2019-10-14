@@ -74,6 +74,20 @@ public final class PlayerConstants {
 		public static final int SNP=4;
 		public static final int BT=5;
 		public static final int STZ=6;
+		public static final int SOM=1;
+		public static final int GLO=2;
+		public static final int WAR=3;
+		public static final int LEIS=4;
+		public static final int ESS=5;
+		public static final int YOR=6;
+		public static final int DUR=7;
+		public static final int HAM=8;
+		public static final int MIDL=9;
+		public static final int LAN=10;
+		public static final int KEN=11;
+		public static final int SUS=12;
+		public static final int SUR=13;
+		public static final int WARC=14;
 	}
 	public static String getRole(int role) {
 		String s = "";

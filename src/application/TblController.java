@@ -1,16 +1,10 @@
 package application;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.StringTokenizer;
-
-import DAO.LeagueDAO;
-import Main.Player;
 import Main.PlayerConstants;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
+import javafx.fxml.*;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 

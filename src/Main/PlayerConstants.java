@@ -45,7 +45,36 @@ public final class PlayerConstants {
 		public static final int BANGLADESH = 9;
 		public static final int AFGHANISTAN = 10;
 	}
-
+	public static class League{
+		public static final int IPL=1;
+		public static final int BBL=2;
+		public static final int CPL=3;
+		public static final int TBL=4;
+	}
+	public static class Team{
+		public static final int RCB=1;
+		public static final int CSK=2;
+		public static final int MI=3;
+		public static final int SRH=4;
+		public static final int KXIP=5;
+		public static final int RR=6;
+		public static final int DC=7;
+		public static final int KKR=8;
+		public static final int ST=1;
+		public static final int SS=2;
+		public static final int MS=3;
+		public static final int MR=4;
+		public static final int PS=5;
+		public static final int BH=6;
+		public static final int AS=7;
+		public static final int HH=8;
+		public static final int TKR=1;
+		public static final int JT=2;
+		public static final int GAW=3;
+		public static final int SNP=4;
+		public static final int BT=5;
+		public static final int STZ=6;
+	}
 	public static String getRole(int role) {
 		String s = "";
 		switch (role) {

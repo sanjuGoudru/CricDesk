@@ -142,4 +142,16 @@ public final class PlayerConstants {
 		}
 		return s;
 	}
+
+	public static String getLeague(int lid) {
+		String s = null;
+
+		return s;
+	}
+
+	public static String getTeam(int lid, int tid) {
+		String s = null;
+
+		return s;
+	}
 }

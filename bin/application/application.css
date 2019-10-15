@@ -18,5 +18,8 @@
 	-fx-background-color:#add8e6;
 }
 #mainScorll{
-	-fx-background-color:#808080;
+	-fx-background-color:rgba(0,0,0,0);
 }
+#grid{
+	-fx-background-color:rgba(0,0,0,0);
+	}

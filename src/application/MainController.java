@@ -21,7 +21,7 @@ public class MainController implements Initializable {
 	@FXML
 	private ImageView league;
 	@FXML
-	private ImageView about;
+	private Button about;
 	@FXML
 	private GridPane centerGridPane;
 	@FXML
@@ -32,6 +32,8 @@ public class MainController implements Initializable {
 	private BorderPane mainPane;
 	@FXML
 	private Button leagueButton;
+	@FXML
+	private Button insertButton;
 	VBox vbox;
 	GridPane gp;
 
@@ -75,6 +77,18 @@ public class MainController implements Initializable {
 		centerGridPane.getChildren().clear();
 		try {
 			gp = FXMLLoader.load(getClass().getResource("/application/League.fxml"));
+		} catch (Exception e) {
+			System.out.println("Error loading File");
+			e.printStackTrace();
+		}
+		centerGridPane.add(gp, 0, 0, 2, 3);
+		GridPane.setHalignment(gp, HPos.CENTER);
+		GridPane.setValignment(gp, VPos.CENTER);
+	}
+	public void insertClick() {
+		centerGridPane.getChildren().clear();
+		try {
+			gp = FXMLLoader.load(getClass().getResource("/application/InsertPlayer.fxml"));
 		} catch (Exception e) {
 			System.out.println("Error loading File");
 			e.printStackTrace();

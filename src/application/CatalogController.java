@@ -58,6 +58,7 @@ public class CatalogController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		//searchButton.setStyle("-fx-background-color: #fffafa;");
 		setComboBoxes();
 		setInitialData();
 

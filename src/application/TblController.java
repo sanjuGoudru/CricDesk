@@ -42,7 +42,6 @@ public class TblController {
 
 	public void click(ActionEvent e) {
 		int tid = getPID(e);
-
 		// clearing all league and opening PlayerView.
 		grid4.getChildren().clear();
 		GridPane contentGrid = null;

@@ -1,6 +1,7 @@
 package application;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import javafx.beans.value.ChangeListener;
@@ -52,11 +53,11 @@ public class InsertPlayerController implements Initializable {
 	@FXML
 	private TextField bowlingSRTextField;
 	boolean[] valid = new boolean[16];
-	String role[] = { "ANYTHING", "BATSMAN", "BOWLER", "BATTING ALLROUNDER", "BOWLING  ALLROUNDER" };
-	String country[] = { "ANYTHING", "INDIA", "AUSTRALIA", "ENGLAND", "SOUTH AFRICA", "NEW ZEALAND", "PAKISTAN",
-			"SRI LANKA", "WEST INDIES", "BANGLADESH", "AFGHANISTAN" };
-	String battingStyle[] = { "ANYTHING", "RIGHT HANDED", "LEFT HANDED" };
-	String bowlingStyle[] = { "ANYTHING", "RIGHT PACER", "RIGHT SPINNER", "LEFT PACER", "LEFT SPINNER" };
+	String role[] = { "BATSMAN", "BOWLER", "BATTING ALLROUNDER", "BOWLING  ALLROUNDER" };
+	String country[] = { "INDIA", "AUSTRALIA", "ENGLAND", "SOUTH AFRICA", "NEW ZEALAND", "PAKISTAN", "SRI LANKA",
+			"WEST INDIES", "BANGLADESH", "AFGHANISTAN" };
+	String battingStyle[] = { "RIGHT HANDED", "LEFT HANDED" };
+	String bowlingStyle[] = { "RIGHT PACER", "RIGHT SPINNER", "LEFT PACER", "LEFT SPINNER" };
 	String testMatches, testRuns, testWickets, testBattingAvg, testBowlingAvg, testBattingSR, testBowlingSR;
 	String odiMatches, odiRuns, odiWickets, odiBattingAvg, odiBowlingAvg, odiBattingSR, odiBowlingSR;
 	String t20Matches, t20Runs, t20Wickets, t20BattingAvg, t20BowlingAvg, t20BattingSR, t20BowlingSR;
@@ -64,6 +65,9 @@ public class InsertPlayerController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		testCareerButton.setStyle("-fx-background-color: #87cefa;");
+		odiCareerButton.setStyle("-fx-background-color: #fffff0;");
+		t20CareerButton.setStyle("-fx-background-color: #fffff0;");
 		setIsValidArray();
 		setComboBoxes();
 		setListeners();
@@ -175,6 +179,33 @@ public class InsertPlayerController implements Initializable {
 		});
 	}
 
+	public void careerButton(ActionEvent ae) {
+		Button b = (Button) ae.getSource();
+		if (testCareerButton == b) {
+			testCareerButton.setStyle("-fx-background-color: #87cefa;");
+			odiCareerButton.setStyle("-fx-background-color: #fffff0;");
+			t20CareerButton.setStyle("-fx-background-color: #fffff0;");
+			System.out.println("Test Career button clicked");
+			test = true;
+			odi = t20 = false;
+		} else if (odiCareerButton == b) {
+			testCareerButton.setStyle("-fx-background-color: #fffff0;");
+			odiCareerButton.setStyle("-fx-background-color: #87cefa;");
+			t20CareerButton.setStyle("-fx-background-color: #fffff0;");
+			System.out.println("ODI career button clicked");
+			odi = true;
+			test = t20 = false;
+		} else if (t20CareerButton == b) {
+			testCareerButton.setStyle("-fx-background-color: #fffff0;");
+			odiCareerButton.setStyle("-fx-background-color: #fffff0;");
+			t20CareerButton.setStyle("-fx-background-color: #87cefa;");
+			System.out.println("T20 career button clicked");
+			t20 = true;
+			odi = test = false;
+		} else
+			System.out.println("Error in careerButton function!");
+	}
+
 	private boolean isAlpha(String name) {
 		char[] chars = name.toCharArray();
 
@@ -195,6 +226,49 @@ public class InsertPlayerController implements Initializable {
 	}
 
 	public void saveClick(ActionEvent ae) {
+		errorLabel.setText("");
+		if ((nameTextField.getText() == null) || (nameTextField.getText().isEmpty())
+				|| !isAlpha(nameTextField.getText())) {
+			errorLabel.setText("Name field is invalid");
+			return;
+		}
+		LocalDate ld = dobDatePicker.getValue();
+		if ((ld == null) || (ld.toString() == null || ld.toString().isEmpty())) {
+			errorLabel.setText("Date is invalid");
+			return;
+		}
+		if (roleComboBox.getSelectionModel().isEmpty()) {
+			errorLabel.setText("Select any role");
+			return;
+		}
+		if (countryComboBox.getSelectionModel().isEmpty()) {
+			errorLabel.setText("Select any country");
+			return;
+		}
+		if (battingStyleComboBox.getSelectionModel().isEmpty()) {
+			errorLabel.setText("Select any batting style");
+			return;
+		}
+		if (bowlingStyleComboBox.getSelectionModel().isEmpty()) {
+			errorLabel.setText("Select any bowling style");
+			return;
+		}
+		if (testMatches == null || testRuns == null || testWickets == null || testBattingSR == null
+				|| testBattingAvg == null || testBowlingAvg == null || testBowlingSR == null) {
+			errorLabel.setText("Test Career data  is invalid");
+			return;
+		}
+		if (odiMatches == null || odiRuns == null || odiWickets == null || odiBattingSR == null || odiBattingAvg == null
+				|| odiBowlingAvg == null || odiBowlingSR == null) {
+			errorLabel.setText("ODI Career data  is invalid");
+			return;
+		}
+		if (t20Matches == null || t20Runs == null || t20Wickets == null || t20BattingSR == null || t20BattingAvg == null
+				|| t20BowlingAvg == null || t20BowlingSR == null) {
+			errorLabel.setText("T20 Career data  is invalid");
+			return;
+		}
+		errorLabel.setText("Player successfully saved.");
 
 	}
 }

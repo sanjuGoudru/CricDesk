@@ -12,6 +12,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
@@ -59,7 +60,7 @@ public class PlayerViewController implements Initializable {
 			Label l = new Label(players.get(i).name);
 			l.prefWidthProperty().bind(contentVBox.widthProperty());
 			contentVBox.getChildren().add(l);
-			l.setStyle("-fx-padding: 4px;");
+			l.setPadding(new Insets(5, 0, 5, 10));
 			l.setId("$" + players.get(i).id);
 			l.setOnMouseClicked(new EventHandler<Event>() {
 

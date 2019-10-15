@@ -15,6 +15,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 
 import javafx.scene.control.TextField;
@@ -133,6 +134,7 @@ public class CatalogController implements Initializable {
 			}
 			gp.getChildren().set(0, new Label(players.get(i).name));
 			Label l = (Label) gp.getChildren().get(0);
+			l.setPadding(new Insets(5, 0, 5, 10));
 			l.setId("$" + players.get(i).id + "");
 			System.out.println(l.getId());
 

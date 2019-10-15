@@ -11,3 +11,12 @@
 #searchButton{
 	-fx-background-color:#0000ff;
 }
+#contentVbox{
+	-fx-background-color:#add8e6;
+}
+#contentGrid{
+	-fx-background-color:#add8e6;
+}
+#mainScorll{
+	-fx-background-color:#808080;
+}

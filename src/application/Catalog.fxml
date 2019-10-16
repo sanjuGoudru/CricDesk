@@ -59,7 +59,7 @@
 				<ComboBox fx:id="battingStyleComboBox" prefWidth="150.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
 				<Label text="Bowling Style: " GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS" />
 				<ComboBox fx:id="bowlingStyleComboBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
-				<Button fx:id="searchButton" mnemonicParsing="false" onAction="#search" text="Search" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+				<Button fx:id="searchButton" mnemonicParsing="false" onAction="#search" text="Search" textFill="#f3f8f5" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
 					<GridPane.margin>
 						<Insets right="50.0" />
 					</GridPane.margin>
@@ -67,7 +67,7 @@
 						<Insets bottom="10.0" left="35.0" right="35.0" top="10.0" />
 					</padding>
                <font>
-                  <Font name="System Bold Italic" size="14.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
 				</Button>
 			</children>

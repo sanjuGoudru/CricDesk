@@ -38,6 +38,8 @@ public class PlayerController implements Initializable {
 	private Label battingSRLabel;
 	@FXML
 	private Label bowlingSRLabel;
+	@FXML
+	private Label inningsLabel;
 	private int id;
 	private Player player;
 	private String[] career = { "Test", "ODI", "T20" };
@@ -91,6 +93,7 @@ public class PlayerController implements Initializable {
 		bowlingAvgLabel.setText(career.bowling_avg + "");
 		battingSRLabel.setText(career.batting_sr + "");
 		bowlingSRLabel.setText(career.bowling_sr + "");
+		inningsLabel.setText(career.innings + "");
 		dao.close();
 	}
 
@@ -105,6 +108,7 @@ public class PlayerController implements Initializable {
 		bowlingAvgLabel.setText(career.bowling_avg + "");
 		battingSRLabel.setText(career.batting_sr + "");
 		bowlingSRLabel.setText(career.bowling_sr + "");
+		inningsLabel.setText(career.innings + "");
 		dao.close();
 	}
 
@@ -119,6 +123,7 @@ public class PlayerController implements Initializable {
 		bowlingAvgLabel.setText(career.bowling_avg + "");
 		battingSRLabel.setText(career.batting_sr + "");
 		bowlingSRLabel.setText(career.bowling_sr + "");
+		inningsLabel.setText(career.innings + "");
 		dao.close();
 	}
 }

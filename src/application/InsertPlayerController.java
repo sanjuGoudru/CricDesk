@@ -292,6 +292,7 @@ public class InsertPlayerController implements Initializable {
 			errorLabel.setText("T20 Career data  is invalid");
 			return;
 		}
+		trim();
 		if (testMatches.isEmpty() || testRuns.isEmpty() || testWickets.isEmpty() || testBattingAvg.isEmpty()
 				|| testBattingSR.isEmpty() || testBowlingAvg.isEmpty() || testBowlingSR.isEmpty()) {
 			errorLabel.setText("Test Career data  is invalid");
@@ -307,21 +308,64 @@ public class InsertPlayerController implements Initializable {
 			errorLabel.setText("T20 Career data  is invalid");
 			return;
 		}
-		errorLabel.setText("Player successfully saved.");
+		System.out.println("About to check test  data");
+		if (isNotNumValid(testMatches) || isNotNumValid(testRuns) || isNotNumValid(testWickets)
+				|| isNotNumValid(testBattingAvg) || isNotNumValid(testBattingSR) || isNotNumValid(testBowlingAvg)
+				|| isNotNumValid(testBowlingSR)) {
+			errorLabel.setText("Test Career data  is invalid");
+			return;
+		}
+		System.out.println("About to check odi data");
+		if (isNotNumValid(odiMatches) || isNotNumValid(odiRuns) || isNotNumValid(odiWickets)
+				|| isNotNumValid(odiBattingAvg) || isNotNumValid(odiBattingSR) || isNotNumValid(odiBowlingAvg)
+				|| isNotNumValid(odiBowlingSR)) {
+			errorLabel.setText("odi Career data  is invalid");
+			return;
+		}
+		System.out.println("About to check t20  data");
+		if (isNotNumValid(t20Matches) || isNotNumValid(t20Runs) || isNotNumValid(t20Wickets)
+				|| isNotNumValid(t20BattingAvg) || isNotNumValid(t20BattingSR) || isNotNumValid(t20BowlingAvg)
+				|| isNotNumValid(t20BowlingSR)) {
+			errorLabel.setText("t20 Career data  is invalid");
+			return;
+		}
 
+		errorLabel.setText("Player successfully saved.");
+	}
+
+	private void trim() {
+		testMatches.trim();
+		testRuns.trim();
+		testWickets.trim();
+		testBattingAvg.trim();
+		testBattingSR.trim();
+		testBowlingAvg.trim();
+		testBowlingSR.trim();
+
+		odiMatches.trim();
+		odiRuns.trim();
+		odiWickets.trim();
+		odiBattingAvg.trim();
+		odiBattingSR.trim();
+		odiBowlingAvg.trim();
+		odiBowlingSR.trim();
+
+		t20Matches.trim();
+		t20Runs.trim();
+		t20Wickets.trim();
+		t20BattingAvg.trim();
+		t20BattingSR.trim();
+		t20BowlingAvg.trim();
+		t20BowlingSR.trim();
+	}
+
+	private boolean isNotNumValid(String s) {
+		if (s.matches("[0-9]+")) {
+			if (Integer.parseInt(s) >= 0) {
+				System.out.println(Integer.parseInt(s));
+				return false;
+			}
+		}
+		return true;
 	}
 }
-
-/*
- * nameTextField.textProperty().addListener(new ChangeListener<Object>() {
- * 
- * @Override public void changed(ObservableValue<? extends Object> observable,
- * Object oldValue, Object newValue) { if(isAlpha((String)newValue)) valid[1] =
- * true; else valid[1] = false; } });
- * dobDatePicker.valueProperty().addListener(new ChangeListener<Object>() {
- * 
- * @Override public void changed(ObservableValue<? extends Object> observable,
- * Object oldValue, Object newValue) { String d =
- * dobDatePicker.getValue().toString(); if(d==null ||d.isEmpty()) valid[2] =
- * false; else valid[2] = true; } });
- */

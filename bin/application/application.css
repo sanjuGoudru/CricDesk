@@ -10,6 +10,7 @@
 }
 #searchButton{
 	-fx-background-color:#0000ff;
+	-fx-font-size:20px;
 }
 #contentVbox{
 	-fx-background-color:#add8e6;
@@ -22,4 +23,7 @@
 }
 #grid{
 	-fx-background-color:rgba(0,0,0,0);
-	}
+}
+#mainVBox{
+	-fx-background-color:#ffe4b5;
+}

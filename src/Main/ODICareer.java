@@ -1,11 +1,11 @@
 package Main;
 
 public class ODICareer {
-	public int id, matches, runs, wickets;
+	public int id, matches, runs, wickets, innings;
 	public double batting_avg, bowling_avg, batting_sr, bowling_sr;
 	public boolean isIDSet;
 
-	public ODICareer(int i, int m, int r, int w, double bta, double boa, double bts, double bos) {
+	public ODICareer(int i, int m, int r, int w, int inn, double bta, double boa, double bts, double bos) {
 		isIDSet = true;
 		id = i;
 		matches = m;
@@ -15,9 +15,10 @@ public class ODICareer {
 		bowling_avg = boa;
 		batting_sr = bts;
 		bowling_sr = bos;
+		innings = inn;
 	}
 
-	public ODICareer(int m, int r, int w, double bta, double boa, double bts, double bos) {
+	public ODICareer(int m, int r, int w, int inn, double bta, double boa, double bts, double bos) {
 		isIDSet = false;
 		id = -1;
 		matches = m;
@@ -27,10 +28,11 @@ public class ODICareer {
 		bowling_avg = boa;
 		batting_sr = bts;
 		bowling_sr = bos;
+		innings = inn;
 	}
 
 	public String toString() {
 		return id + " " + matches + " " + runs + " " + wickets + " " + batting_avg + " " + bowling_avg + " "
-				+ batting_sr + " " + bowling_sr;
+				+ batting_sr + " " + bowling_sr + " " + innings;
 	}
 }

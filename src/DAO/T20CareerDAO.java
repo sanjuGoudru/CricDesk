@@ -38,7 +38,7 @@ public class T20CareerDAO {
 		Statement st = null;
 		ResultSet rs = null;
 		String query = "select * from t20_career where id = " + id;
-		int matches = -1, runs = -1, wickets = -1;
+		int matches = -1, runs = -1, wickets = -1,innings = -1;
 		double batting_avg = -1, bowling_avg = -1, batting_sr = -1, bowling_sr = -1;
 		try {
 			st = con.createStatement();
@@ -51,11 +51,12 @@ public class T20CareerDAO {
 			bowling_avg = rs.getDouble(6);
 			batting_sr = rs.getDouble(7);
 			bowling_sr = rs.getDouble(8);
+			innings = rs.getInt(9);
 		} catch (Exception e) {
 			System.out.println("Error in creating statement ");
 			e.printStackTrace();
 		}
-		t20Career = new T20Career(id, matches, runs, wickets, batting_avg, bowling_avg, batting_sr, bowling_sr);
+		t20Career = new T20Career(id, matches, runs, wickets,innings, batting_avg, bowling_avg, batting_sr, bowling_sr);
 		try {
 			st.close();
 		} catch (SQLException e) {
@@ -65,17 +66,18 @@ public class T20CareerDAO {
 	}
 
 	public void insertT20Career(T20Career t20Career) throws SQLException {
-		int matches, runs, wickets, id;
+		int matches, runs, wickets, id,innings;
 		double batting_avg, bowling_avg, batting_sr, bowling_sr;
 		matches = t20Career.matches;
 		runs = t20Career.runs;
+		innings = t20Career.innings;
 		wickets = t20Career.wickets;
 		id = t20Career.id;
 		batting_avg = t20Career.batting_avg;
 		bowling_avg = t20Career.bowling_avg;
 		batting_sr = t20Career.batting_sr;
 		bowling_sr = t20Career.bowling_sr;
-		String query = "insert into t20_career values (?,?,?,?,?,?,?,?)";
+		String query = "insert into t20_career values (?,?,?,?,?,?,?,?,?)";
 		PreparedStatement st = con.prepareStatement(query);
 		st.setInt(1, id);
 		st.setInt(2, matches);
@@ -85,6 +87,7 @@ public class T20CareerDAO {
 		st.setDouble(6, bowling_avg);
 		st.setDouble(7, batting_sr);
 		st.setDouble(8, bowling_sr);
+		st.setInt(9, innings);
 		st.executeUpdate();
 		st.close();
 	}

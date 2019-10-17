@@ -6,8 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import Main.T20Career;
+import Main.*;
 
 public class T20CareerDAO {
 	Connection con = null;
@@ -146,5 +145,11 @@ public class T20CareerDAO {
 		pst.setInt(1, wickets);
 		pst.setInt(2, id);
 		pst.executeUpdate();
+	}
+	public  void  UpdateAvg(int pid) throws Exception{
+		String query = "call updateAvg("+pid+",3)";
+		PreparedStatement st = con.prepareStatement(query);
+		st.executeUpdate();
+		st.close();
 	}
 }

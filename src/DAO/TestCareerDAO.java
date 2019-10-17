@@ -91,6 +91,13 @@ public class TestCareerDAO {
 		st.executeUpdate();
 		st.close();
 	}
+	
+	public  void  UpdateAvg(int pid) throws Exception{
+		String query = "call updateAvg("+pid+",1)";
+		PreparedStatement st = con.prepareStatement(query);
+		st.executeUpdate();
+		st.close();
+	}
 
 	public void updateBattingAverage(int id, double battingAvg) throws SQLException {
 		String query = "update test_career set batting_avg=? where id=?";

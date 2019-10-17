@@ -146,4 +146,10 @@ public class ODICareerDAO {
 		pst.setInt(2, id);
 		pst.executeUpdate();
 	}
+	public  void  UpdateAvg(int pid) throws Exception{
+		String query = "call updateAvg("+pid+",2)";
+		PreparedStatement st = con.prepareStatement(query);
+		st.executeUpdate();
+		st.close();
+	}
 }

@@ -31,6 +31,8 @@ public class T20Career {
 		bowling_sr = bos;
 	}
 
+	
+
 	public String toString() {
 		return id + " " + matches + " " + runs + " " + wickets + " " + batting_avg + " " + bowling_avg + " "
 				+ batting_sr + " " + bowling_sr + " " + innings;

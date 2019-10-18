@@ -231,6 +231,12 @@
          <font>
             <Font size="18.0" />
          </font>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
       </Label>
    </children>
+   <padding>
+      <Insets bottom="30.0" />
+   </padding>
 </GridPane>

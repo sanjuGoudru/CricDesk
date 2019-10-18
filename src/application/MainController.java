@@ -82,6 +82,8 @@ public class MainController implements Initializable {
 			e.printStackTrace();
 		}
 		centerGridPane.add(gp, 0, 0, 2, 3);
+		gp.prefHeightProperty().bind(centerGridPane.heightProperty());
+		gp.prefWidthProperty().bind(centerGridPane.widthProperty());
 		GridPane.setHalignment(gp, HPos.CENTER);
 		GridPane.setValignment(gp, VPos.CENTER);
 	}

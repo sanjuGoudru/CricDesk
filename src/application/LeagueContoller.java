@@ -31,6 +31,8 @@ public class LeagueContoller {
 		}
 		grid1.getChildren().clear();
 		grid1.add(gp, 0, 0, 2, 2);
+		gp.prefHeightProperty().bind(grid1.heightProperty());
+		gp.prefWidthProperty().bind(grid1.widthProperty());
 		GridPane.setHalignment(gp, HPos.CENTER);
 		GridPane.setValignment(gp, VPos.CENTER);
 	}
@@ -45,6 +47,8 @@ public class LeagueContoller {
 		}
 		grid1.getChildren().clear();
 		grid1.add(gp, 0, 0, 2, 2);
+		gp.prefHeightProperty().bind(grid1.heightProperty());
+		gp.prefWidthProperty().bind(grid1.widthProperty());
 		GridPane.setHalignment(gp, HPos.CENTER);
 		GridPane.setValignment(gp, VPos.CENTER);
 	}
@@ -59,6 +63,8 @@ public class LeagueContoller {
 		}
 		grid1.getChildren().clear();
 		grid1.add(gp, 0, 0, 2, 2);
+		gp.prefHeightProperty().bind(grid1.heightProperty());
+		gp.prefWidthProperty().bind(grid1.widthProperty());
 		GridPane.setHalignment(gp, HPos.CENTER);
 		GridPane.setValignment(gp, VPos.CENTER);
 	}
@@ -73,6 +79,8 @@ public class LeagueContoller {
 		}
 		grid1.getChildren().clear();
 		grid1.add(gp, 0, 0, 2, 2);
+		gp.prefHeightProperty().bind(grid1.heightProperty());
+		gp.prefWidthProperty().bind(grid1.widthProperty());
 		GridPane.setHalignment(gp, HPos.CENTER);
 		GridPane.setValignment(gp, VPos.CENTER);
 	}

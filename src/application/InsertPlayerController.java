@@ -49,7 +49,7 @@ public class InsertPlayerController implements Initializable {
 	@FXML
 	private TextField wicketsTextField;
 	@FXML
-	private TextField battingAvgTextField;
+	private TextField inningsTextField;
 	@FXML
 	private TextField bowlingAvgTextField;
 	@FXML
@@ -62,11 +62,11 @@ public class InsertPlayerController implements Initializable {
 			"WEST INDIES", "BANGLADESH", "AFGHANISTAN" };
 	String battingStyle[] = { "RIGHT HANDED", "LEFT HANDED" };
 	String bowlingStyle[] = { "RIGHT PACER", "RIGHT SPINNER", "LEFT PACER", "LEFT SPINNER" };
-	String testMatches = "", testRuns = "", testWickets = "", testBattingAvg = "", testBowlingAvg = "",
+	String testMatches = "", testRuns = "", testWickets = "", testInnings = "", testBowlingAvg = "",
 			testBattingSR = "", testBowlingSR = "";
-	String odiMatches = "", odiRuns = "", odiWickets = "", odiBattingAvg = "", odiBowlingAvg = "", odiBattingSR = "",
+	String odiMatches = "", odiRuns = "", odiWickets = "", odiInnings = "", odiBowlingAvg = "", odiBattingSR = "",
 			odiBowlingSR = "";
-	String t20Matches = "", t20Runs = "", t20Wickets = "", t20BattingAvg = "", t20BowlingAvg = "", t20BattingSR = "",
+	String t20Matches = "", t20Runs = "", t20Wickets = "", t20Innings = "", t20BowlingAvg = "", t20BattingSR = "",
 			t20BowlingSR = "";
 	boolean test = true, odi = false, t20 = false;
 
@@ -128,18 +128,18 @@ public class InsertPlayerController implements Initializable {
 					System.out.println("Error in  wicketsTextField");
 			}
 		});
-		battingAvgTextField.textProperty().addListener(new ChangeListener<String>() {
+		inningsTextField.textProperty().addListener(new ChangeListener<String>() {
 
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 				if ((test) && (!odi) && (!t20))
-					testBattingAvg = newValue;
+					testInnings = newValue;
 				else if ((!test) && (odi) && (!t20))
-					odiBattingAvg = newValue;
+					odiInnings = newValue;
 				else if ((!test) && (!odi) && (t20))
-					t20BattingAvg = newValue;
+					t20Innings = newValue;
 				else
-					System.out.println("Error in  battingAvgTextField");
+					System.out.println("Error in  inningsTextField");
 			}
 		});
 		bowlingAvgTextField.textProperty().addListener(new ChangeListener<String>() {
@@ -198,7 +198,7 @@ public class InsertPlayerController implements Initializable {
 			matchesTextField.setText(testMatches);
 			runsTextField.setText(testRuns);
 			wicketsTextField.setText(testWickets);
-			battingAvgTextField.setText(testBattingAvg);
+			inningsTextField.setText(testInnings);
 			battingSRTextField.setText(testBattingSR);
 			bowlingAvgTextField.setText(testBowlingAvg);
 			bowlingSRTextField.setText(testBowlingSR);
@@ -212,7 +212,7 @@ public class InsertPlayerController implements Initializable {
 			matchesTextField.setText(odiMatches);
 			runsTextField.setText(odiRuns);
 			wicketsTextField.setText(odiWickets);
-			battingAvgTextField.setText(odiBattingAvg);
+			inningsTextField.setText(odiInnings);
 			battingSRTextField.setText(odiBattingSR);
 			bowlingAvgTextField.setText(odiBowlingAvg);
 			bowlingSRTextField.setText(odiBowlingSR);
@@ -226,7 +226,7 @@ public class InsertPlayerController implements Initializable {
 			matchesTextField.setText(t20Matches);
 			runsTextField.setText(t20Runs);
 			wicketsTextField.setText(t20Wickets);
-			battingAvgTextField.setText(t20BattingAvg);
+			inningsTextField.setText(t20Innings);
 			battingSRTextField.setText(t20BattingSR);
 			bowlingAvgTextField.setText(t20BowlingAvg);
 			bowlingSRTextField.setText(t20BowlingSR);
@@ -283,53 +283,53 @@ public class InsertPlayerController implements Initializable {
 			return;
 		}
 		if (testMatches == null || testRuns == null || testWickets == null || testBattingSR == null
-				|| testBattingAvg == null || testBowlingAvg == null || testBowlingSR == null) {
+				|| testInnings == null || testBowlingAvg == null || testBowlingSR == null) {
 			errorLabel.setText("Test Career data  is invalid");
 			return;
 		}
-		if (odiMatches == null || odiRuns == null || odiWickets == null || odiBattingSR == null || odiBattingAvg == null
+		if (odiMatches == null || odiRuns == null || odiWickets == null || odiBattingSR == null || odiInnings == null
 				|| odiBowlingAvg == null || odiBowlingSR == null) {
 			errorLabel.setText("ODI Career data  is invalid");
 			return;
 		}
-		if (t20Matches == null || t20Runs == null || t20Wickets == null || t20BattingSR == null || t20BattingAvg == null
+		if (t20Matches == null || t20Runs == null || t20Wickets == null || t20BattingSR == null || t20Innings == null
 				|| t20BowlingAvg == null || t20BowlingSR == null) {
 			errorLabel.setText("T20 Career data  is invalid");
 			return;
 		}
 		trim();
-		if (testMatches.isEmpty() || testRuns.isEmpty() || testWickets.isEmpty() || testBattingAvg.isEmpty()
+		if (testMatches.isEmpty() || testRuns.isEmpty() || testWickets.isEmpty() || testInnings.isEmpty()
 				|| testBattingSR.isEmpty() || testBowlingAvg.isEmpty() || testBowlingSR.isEmpty()) {
 			errorLabel.setText("Test Career data  is invalid");
 			return;
 		}
-		if (odiMatches.isEmpty() || odiRuns.isEmpty() || odiWickets.isEmpty() || odiBattingAvg.isEmpty()
+		if (odiMatches.isEmpty() || odiRuns.isEmpty() || odiWickets.isEmpty() || odiInnings.isEmpty()
 				|| odiBattingSR.isEmpty() || odiBowlingAvg.isEmpty() || odiBowlingSR.isEmpty()) {
 			errorLabel.setText("ODI Career data  is invalid");
 			return;
 		}
-		if (t20Matches.isEmpty() || t20Runs.isEmpty() || t20Wickets.isEmpty() || t20BattingAvg.isEmpty()
+		if (t20Matches.isEmpty() || t20Runs.isEmpty() || t20Wickets.isEmpty() || t20Innings.isEmpty()
 				|| t20BattingSR.isEmpty() || t20BowlingAvg.isEmpty() || t20BowlingSR.isEmpty()) {
 			errorLabel.setText("T20 Career data  is invalid");
 			return;
 		}
 		System.out.println("About to check test  data");
 		if (isNotNumValid(testMatches) || isNotNumValid(testRuns) || isNotNumValid(testWickets)
-				|| isNotNumValid(testBattingAvg) || isNotNumValid(testBattingSR) || isNotNumValid(testBowlingAvg)
+				|| isNotNumValid(testInnings) || isNotNumValid(testBattingSR) || isNotNumValid(testBowlingAvg)
 				|| isNotNumValid(testBowlingSR)) {
 			errorLabel.setText("Test Career data  is invalid");
 			return;
 		}
 		System.out.println("About to check odi data");
 		if (isNotNumValid(odiMatches) || isNotNumValid(odiRuns) || isNotNumValid(odiWickets)
-				|| isNotNumValid(odiBattingAvg) || isNotNumValid(odiBattingSR) || isNotNumValid(odiBowlingAvg)
+				|| isNotNumValid(odiInnings) || isNotNumValid(odiBattingSR) || isNotNumValid(odiBowlingAvg)
 				|| isNotNumValid(odiBowlingSR)) {
 			errorLabel.setText("odi Career data  is invalid");
 			return;
 		}
 		System.out.println("About to check t20  data");
 		if (isNotNumValid(t20Matches) || isNotNumValid(t20Runs) || isNotNumValid(t20Wickets)
-				|| isNotNumValid(t20BattingAvg) || isNotNumValid(t20BattingSR) || isNotNumValid(t20BowlingAvg)
+				|| isNotNumValid(t20Innings) || isNotNumValid(t20BattingSR) || isNotNumValid(t20BowlingAvg)
 				|| isNotNumValid(t20BowlingSR)) {
 			errorLabel.setText("t20 Career data  is invalid");
 			return;
@@ -365,7 +365,7 @@ public class InsertPlayerController implements Initializable {
 		testMatches.trim();
 		testRuns.trim();
 		testWickets.trim();
-		testBattingAvg.trim();
+		testInnings.trim();
 		testBattingSR.trim();
 		testBowlingAvg.trim();
 		testBowlingSR.trim();
@@ -373,7 +373,7 @@ public class InsertPlayerController implements Initializable {
 		odiMatches.trim();
 		odiRuns.trim();
 		odiWickets.trim();
-		odiBattingAvg.trim();
+		odiInnings.trim();
 		odiBattingSR.trim();
 		odiBowlingAvg.trim();
 		odiBowlingSR.trim();
@@ -381,7 +381,7 @@ public class InsertPlayerController implements Initializable {
 		t20Matches.trim();
 		t20Runs.trim();
 		t20Wickets.trim();
-		t20BattingAvg.trim();
+		t20Innings.trim();
 		t20BattingSR.trim();
 		t20BowlingAvg.trim();
 		t20BowlingSR.trim();

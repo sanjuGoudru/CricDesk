@@ -16,6 +16,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.layout.GridPane;
 
 public class PlayerViewController implements Initializable {
@@ -56,12 +57,14 @@ public class PlayerViewController implements Initializable {
 
 	public void addContent() {
 		for (i = 0; i < players.size(); i++) {
-
 			Label l = new Label(players.get(i).name);
+			l.setStyle("-fx-background-color: #ffffff;");
 			l.prefWidthProperty().bind(contentVBox.widthProperty());
 			contentVBox.getChildren().add(l);
 			l.setPadding(new Insets(5, 0, 5, 10));
 			l.setId("$" + players.get(i).id);
+			l.setFont(new Font(25));
+			l.setText(l.getText().toUpperCase());
 			l.setOnMouseClicked(new EventHandler<Event>() {
 
 				@Override

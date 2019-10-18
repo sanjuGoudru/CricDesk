@@ -256,83 +256,98 @@ public class InsertPlayerController implements Initializable {
 	}
 
 	public void saveClick(ActionEvent ae) {
-		errorLabel.setText("");
-		errorLabel.setStyle("-fx-text-fill: red;");
+		errorLabel.setText("Loaing");
+		errorLabel.setStyle("-fx-text-fill: yellow;");
 		if ((nameTextField.getText() == null) || (nameTextField.getText().isEmpty())
 				|| !isAlpha(nameTextField.getText())) {
+			errorLabel.setStyle("-fx-text-fill: red;");
 			errorLabel.setText("Name field is invalid");
 			return;
 		}
 		LocalDate ld = dobDatePicker.getValue();
 		if ((ld == null) || (ld.toString() == null || ld.toString().isEmpty()) || (ld.isAfter(LocalDate.now()))) {
+			errorLabel.setStyle("-fx-text-fill: red;");
 			errorLabel.setText("Date is invalid");
 			return;
 		}
 		if (roleComboBox.getSelectionModel().isEmpty()) {
+			errorLabel.setStyle("-fx-text-fill: red;");
 			errorLabel.setText("Select any role");
 			return;
 		}
 		if (countryComboBox.getSelectionModel().isEmpty()) {
+			errorLabel.setStyle("-fx-text-fill: red;");
 			errorLabel.setText("Select any country");
 			return;
 		}
 		if (battingStyleComboBox.getSelectionModel().isEmpty()) {
+			errorLabel.setStyle("-fx-text-fill: red;");
 			errorLabel.setText("Select any batting style");
 			return;
 		}
 		if (bowlingStyleComboBox.getSelectionModel().isEmpty()) {
+			errorLabel.setStyle("-fx-text-fill: red;");
 			errorLabel.setText("Select any bowling style");
 			return;
 		}
 		if (testMatches == null || testRuns == null || testWickets == null || testBattingSR == null
 				|| testInnings == null || testBowlingAvg == null || testBowlingSR == null) {
+			errorLabel.setStyle("-fx-text-fill: red;");
 			errorLabel.setText("Test Career data  is invalid");
 			return;
 		}
 		if (odiMatches == null || odiRuns == null || odiWickets == null || odiBattingSR == null || odiInnings == null
 				|| odiBowlingAvg == null || odiBowlingSR == null) {
+			errorLabel.setStyle("-fx-text-fill: red;");
 			errorLabel.setText("ODI Career data  is invalid");
 			return;
 		}
 		if (t20Matches == null || t20Runs == null || t20Wickets == null || t20BattingSR == null || t20Innings == null
 				|| t20BowlingAvg == null || t20BowlingSR == null) {
+			errorLabel.setStyle("-fx-text-fill: red;");
 			errorLabel.setText("T20 Career data  is invalid");
 			return;
 		}
 		trim();
 		if (testMatches.isEmpty() || testRuns.isEmpty() || testWickets.isEmpty() || testInnings.isEmpty()
 				|| testBattingSR.isEmpty() || testBowlingAvg.isEmpty() || testBowlingSR.isEmpty()) {
+			errorLabel.setStyle("-fx-text-fill: red;");
 			errorLabel.setText("Test Career data  is invalid");
 			return;
 		}
 		if (odiMatches.isEmpty() || odiRuns.isEmpty() || odiWickets.isEmpty() || odiInnings.isEmpty()
 				|| odiBattingSR.isEmpty() || odiBowlingAvg.isEmpty() || odiBowlingSR.isEmpty()) {
+			errorLabel.setStyle("-fx-text-fill: red;");
 			errorLabel.setText("ODI Career data  is invalid");
 			return;
 		}
 		if (t20Matches.isEmpty() || t20Runs.isEmpty() || t20Wickets.isEmpty() || t20Innings.isEmpty()
 				|| t20BattingSR.isEmpty() || t20BowlingAvg.isEmpty() || t20BowlingSR.isEmpty()) {
+			errorLabel.setStyle("-fx-text-fill: red;");
 			errorLabel.setText("T20 Career data  is invalid");
 			return;
 		}
 		System.out.println("About to check test  data");
-		if (isNotNumValid(testMatches) || isNotNumValid(testRuns) || isNotNumValid(testWickets)
-				|| isNotNumValid(testInnings) || isNotNumValid(testBattingSR) || isNotNumValid(testBowlingAvg)
-				|| isNotNumValid(testBowlingSR)) {
+		if (isNotNumValid(testMatches, false) || isNotNumValid(testRuns, false) || isNotNumValid(testWickets, false)
+				|| isNotNumValid(testInnings, false) || isNotNumValid(testBattingSR, true)
+				|| isNotNumValid(testBowlingAvg, true) || isNotNumValid(testBowlingSR, true)) {
+			errorLabel.setStyle("-fx-text-fill: red;");
 			errorLabel.setText("Test Career data  is invalid");
 			return;
 		}
 		System.out.println("About to check odi data");
-		if (isNotNumValid(odiMatches) || isNotNumValid(odiRuns) || isNotNumValid(odiWickets)
-				|| isNotNumValid(odiInnings) || isNotNumValid(odiBattingSR) || isNotNumValid(odiBowlingAvg)
-				|| isNotNumValid(odiBowlingSR)) {
+		if (isNotNumValid(odiMatches, false) || isNotNumValid(odiRuns, false) || isNotNumValid(odiWickets, false)
+				|| isNotNumValid(odiInnings, false) || isNotNumValid(odiBattingSR, true)
+				|| isNotNumValid(odiBowlingAvg, true) || isNotNumValid(odiBowlingSR, true)) {
+			errorLabel.setStyle("-fx-text-fill: red;");
 			errorLabel.setText("odi Career data  is invalid");
 			return;
 		}
 		System.out.println("About to check t20  data");
-		if (isNotNumValid(t20Matches) || isNotNumValid(t20Runs) || isNotNumValid(t20Wickets)
-				|| isNotNumValid(t20Innings) || isNotNumValid(t20BattingSR) || isNotNumValid(t20BowlingAvg)
-				|| isNotNumValid(t20BowlingSR)) {
+		if (isNotNumValid(t20Matches, false) || isNotNumValid(t20Runs, false) || isNotNumValid(t20Wickets, false)
+				|| isNotNumValid(t20Innings, false) || isNotNumValid(t20BattingSR, true)
+				|| isNotNumValid(t20BowlingAvg, true) || isNotNumValid(t20BowlingSR, true)) {
+			errorLabel.setStyle("-fx-text-fill: red;");
 			errorLabel.setText("t20 Career data  is invalid");
 			return;
 		}
@@ -349,9 +364,9 @@ public class InsertPlayerController implements Initializable {
 		int runs = Integer.parseInt(odiRuns);
 		int wickets = Integer.parseInt(odiWickets);
 		int innings = Integer.parseInt(odiInnings);
-		double bowlAvg = Integer.parseInt(odiBowlingAvg);
-		double batSR = Integer.parseInt(odiBattingSR);
-		double bowlSR = Integer.parseInt(odiBowlingSR);
+		double bowlAvg = Double.parseDouble(odiBowlingAvg);
+		double batSR = Double.parseDouble(odiBattingSR);
+		double bowlSR = Double.parseDouble(odiBowlingSR);
 		ODICareerDAO odiDAO = new ODICareerDAO();
 		odiDAO.connect();
 		ODICareer oc = new ODICareer(matches, runs, wickets, innings, bowlAvg, batSR, bowlSR);
@@ -373,9 +388,9 @@ public class InsertPlayerController implements Initializable {
 		int runs = Integer.parseInt(t20Runs);
 		int wickets = Integer.parseInt(t20Wickets);
 		int innings = Integer.parseInt(t20Innings);
-		double bowlAvg = Integer.parseInt(t20BowlingAvg);
-		double batSR = Integer.parseInt(t20BattingSR);
-		double bowlSR = Integer.parseInt(t20BowlingSR);
+		double bowlAvg = Double.parseDouble(t20BowlingAvg);
+		double batSR = Double.parseDouble(t20BattingSR);
+		double bowlSR = Double.parseDouble(t20BowlingSR);
 		T20CareerDAO t20DAO = new T20CareerDAO();
 		t20DAO.connect();
 		T20Career t20c = new T20Career(matches, runs, wickets, innings, bowlAvg, batSR, bowlSR);
@@ -397,9 +412,9 @@ public class InsertPlayerController implements Initializable {
 		int runs = Integer.parseInt(testRuns);
 		int wickets = Integer.parseInt(testWickets);
 		int innings = Integer.parseInt(testInnings);
-		double bowlAvg = Integer.parseInt(testBowlingAvg);
-		double batSR = Integer.parseInt(testBattingSR);
-		double bowlSR = Integer.parseInt(testBowlingSR);
+		double bowlAvg = Double.parseDouble(testBowlingAvg);
+		double batSR = Double.parseDouble(testBattingSR);
+		double bowlSR = Double.parseDouble(testBowlingSR);
 		TestCareerDAO tdao = new TestCareerDAO();
 		tdao.connect();
 		TestCareer tc = new TestCareer(matches, runs, wickets, innings, bowlAvg, batSR, bowlSR);
@@ -466,7 +481,7 @@ public class InsertPlayerController implements Initializable {
 		t20BowlingSR.trim();
 	}
 
-	private boolean isNotNumValid(String s) {
+	private boolean isNotNumValid(String s, boolean hasDot) {
 		if (s.matches("[0-9]+")) {
 			if (Integer.parseInt(s) >= 0) {
 				System.out.println(Integer.parseInt(s));
@@ -479,9 +494,11 @@ public class InsertPlayerController implements Initializable {
 			if (c == '.')
 				count++;
 		}
-		if (count == 0 || count == 1)
-			return true;
-		else
+		if ((count == 0 && !hasDot))
 			return false;
+		else if ((count == 0 || count == 1) && hasDot)
+			return false;
+		else
+			return true;
 	}
 }

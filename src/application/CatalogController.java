@@ -23,6 +23,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.layout.GridPane;
 
 public class CatalogController implements Initializable {
@@ -135,6 +136,10 @@ public class CatalogController implements Initializable {
 			gp.getChildren().set(0, new Label(players.get(i).name));
 			Label l = (Label) gp.getChildren().get(0);
 			l.setPadding(new Insets(5, 0, 5, 10));
+			l.setStyle("-fx-background-color:#ffffff;");
+			l.setFont(new Font(25));
+			l.setText(l.getText().toUpperCase());
+			l.prefWidthProperty().bind(contentVBox.widthProperty());
 			l.setId("$" + players.get(i).id + "");
 			System.out.println(l.getId());
 
@@ -155,6 +160,7 @@ public class CatalogController implements Initializable {
 					mainVBox.getChildren().add(playerGP);
 					playerGP.prefHeightProperty().bind(mainVBox.heightProperty());
 					playerGP.prefWidthProperty().bind(mainVBox.widthProperty());
+					
 				}
 			});
 			contentVBox.getChildren().add(gp);

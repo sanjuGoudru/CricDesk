@@ -41,7 +41,7 @@
 			<children>
 				<Label alignment="CENTER" text="DOB" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
 					<font>
-						<Font name="System Bold" size="15.0" />
+						<Font name="System Bold" size="17.0" />
 					</font>
 					<GridPane.margin>
 						<Insets right="60.0" />
@@ -55,12 +55,12 @@
 						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
 					</padding>
                <font>
-                  <Font name="System Bold Italic" size="12.0" />
+                  <Font name="System Bold Italic" size="16.0" />
                </font>
 				</Label>
 				<Label alignment="CENTER" text="Role" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
 					<font>
-						<Font name="System Bold" size="15.0" />
+						<Font name="System Bold" size="17.0" />
 					</font>
 					<GridPane.margin>
 						<Insets right="60.0" />
@@ -74,12 +74,12 @@
 						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
 					</padding>
                <font>
-                  <Font name="System Bold Italic" size="12.0" />
+                  <Font name="System Bold Italic" size="16.0" />
                </font>
 				</Label>
 				<Label alignment="CENTER" text="Country" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
 					<font>
-						<Font name="System Bold" size="15.0" />
+						<Font name="System Bold" size="17.0" />
 					</font>
 					<GridPane.margin>
 						<Insets right="60.0" />
@@ -93,12 +93,12 @@
 						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
 					</padding>
                <font>
-                  <Font name="System Bold Italic" size="12.0" />
+                  <Font name="System Bold Italic" size="16.0" />
                </font>
 				</Label>
 				<Label alignment="CENTER" text="Batting Style" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
 					<font>
-						<Font name="System Bold" size="15.0" />
+						<Font name="System Bold" size="17.0" />
 					</font>
 					<GridPane.margin>
 						<Insets right="60.0" />
@@ -112,12 +112,12 @@
 						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
 					</padding>
                <font>
-                  <Font name="System Bold Italic" size="12.0" />
+                  <Font name="System Bold Italic" size="16.0" />
                </font>
 				</Label>
 				<Label alignment="CENTER" text="Bowling Style" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
 					<font>
-						<Font name="System Bold" size="15.0" />
+						<Font name="System Bold" size="17.0" />
 					</font>
 					<GridPane.margin>
 						<Insets right="60.0" />
@@ -131,7 +131,7 @@
 						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
 					</padding>
                <font>
-                  <Font name="System Bold Italic" size="12.0" />
+                  <Font name="System Bold Italic" size="16.0" />
                </font>
 				</Label>
 			</children>
@@ -155,7 +155,7 @@
 			<children>
 				<Label alignment="CENTER" text="Runs" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
 					<font>
-						<Font name="System Bold" size="15.0" />
+						<Font name="System Bold" size="17.0" />
 					</font>
 					<GridPane.margin>
 						<Insets bottom="10.0" right="60.0" top="10.0" />
@@ -171,7 +171,7 @@
 				</ComboBox>
 				<Label alignment="CENTER" text="Matches" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
 					<font>
-						<Font name="System Bold" size="15.0" />
+						<Font name="System Bold" size="17.0" />
 					</font>
 					<GridPane.margin>
 						<Insets bottom="10.0" right="60.0" top="10.0" />
@@ -193,7 +193,7 @@
 				</Label>
 				<Label alignment="CENTER" text="Batting Average" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
 					<font>
-						<Font name="System Bold" size="15.0" />
+						<Font name="System Bold" size="17.0" />
 					</font>
 					<GridPane.margin>
 						<Insets bottom="10.0" right="60.0" top="10.0" />
@@ -204,7 +204,7 @@
 				</Label>
 				<Label alignment="CENTER" text="Bowling Average" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
 					<font>
-						<Font name="System Bold" size="15.0" />
+						<Font name="System Bold" size="17.0" />
 					</font>
 					<GridPane.margin>
 						<Insets bottom="10.0" right="60.0" top="10.0" />
@@ -215,7 +215,7 @@
 				</Label>
 				<Label alignment="CENTER" text="Batting SR" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
 					<font>
-						<Font name="System Bold" size="15.0" />
+						<Font name="System Bold" size="17.0" />
 					</font>
 					<GridPane.margin>
 						<Insets bottom="10.0" right="60.0" top="10.0" />
@@ -226,7 +226,7 @@
 				</Label>
 				<Label alignment="CENTER" text="Bowling SR" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
 					<font>
-						<Font name="System Bold" size="15.0" />
+						<Font name="System Bold" size="17.0" />
 					</font>
 					<GridPane.margin>
 						<Insets bottom="10.0" right="60.0" top="10.0" />
@@ -235,7 +235,7 @@
 						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
 					</padding>
 				</Label>
-				<Label fx:id="matchesLabel" text="Label" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+				<Label fx:id="matchesLabel" text="-" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
 					<GridPane.margin>
 						<Insets bottom="10.0" right="10.0" top="10.0" />
 					</GridPane.margin>
@@ -243,10 +243,10 @@
 						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
 					</padding>
                <font>
-                  <Font name="System Bold Italic" size="12.0" />
+                  <Font name="System Bold Italic" size="15.0" />
                </font>
 				</Label>
-				<Label fx:id="runsLabel" text="Label" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+				<Label fx:id="runsLabel" text="-" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
 					<GridPane.margin>
 						<Insets bottom="10.0" right="10.0" top="10.0" />
 					</GridPane.margin>
@@ -254,10 +254,10 @@
 						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
 					</padding>
                <font>
-                  <Font name="System Bold Italic" size="12.0" />
+                  <Font name="System Bold Italic" size="15.0" />
                </font>
 				</Label>
-				<Label fx:id="wicketsLabel" text="Label" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+				<Label fx:id="wicketsLabel" text="-" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
 					<GridPane.margin>
 						<Insets bottom="10.0" right="10.0" top="10.0" />
 					</GridPane.margin>
@@ -265,10 +265,10 @@
 						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
 					</padding>
                <font>
-                  <Font name="System Bold Italic" size="12.0" />
+                  <Font name="System Bold Italic" size="15.0" />
                </font>
 				</Label>
-				<Label fx:id="battingAvgLabel" text="Label" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+				<Label fx:id="battingAvgLabel" text="-" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
 					<GridPane.margin>
 						<Insets bottom="10.0" right="10.0" top="10.0" />
 					</GridPane.margin>
@@ -276,10 +276,10 @@
 						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
 					</padding>
                <font>
-                  <Font name="System Bold Italic" size="12.0" />
+                  <Font name="System Bold Italic" size="15.0" />
                </font>
 				</Label>
-				<Label fx:id="bowlingAvgLabel" text="Label" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+				<Label fx:id="bowlingAvgLabel" text="-" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
 					<GridPane.margin>
 						<Insets bottom="10.0" right="10.0" top="10.0" />
 					</GridPane.margin>
@@ -287,10 +287,10 @@
 						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
 					</padding>
                <font>
-                  <Font name="System Bold Italic" size="12.0" />
+                  <Font name="System Bold Italic" size="15.0" />
                </font>
 				</Label>
-				<Label fx:id="battingSRLabel" text="Label" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+				<Label fx:id="battingSRLabel" text="-" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
 					<GridPane.margin>
 						<Insets bottom="10.0" right="10.0" top="10.0" />
 					</GridPane.margin>
@@ -298,10 +298,10 @@
 						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
 					</padding>
                <font>
-                  <Font name="System Bold Italic" size="12.0" />
+                  <Font name="System Bold Italic" size="15.0" />
                </font>
 				</Label>
-				<Label fx:id="bowlingSRLabel" text="Label" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+				<Label fx:id="bowlingSRLabel" text="-" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
 					<GridPane.margin>
 						<Insets bottom="10.0" right="10.0" top="10.0" />
 					</GridPane.margin>
@@ -309,12 +309,12 @@
 						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
 					</padding>
                <font>
-                  <Font name="System Bold Italic" size="12.0" />
+                  <Font name="System Bold Italic" size="15.0" />
                </font>
 				</Label>
             <Label text="Innings" GridPane.halignment="RIGHT" GridPane.rowIndex="8" GridPane.valignment="CENTER">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -323,9 +323,9 @@
                   <Insets bottom="10.0" right="60.0" top="10.0" />
                </GridPane.margin>
             </Label>
-            <Label fx:id="inningsLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8">
+            <Label fx:id="inningsLabel" text="-" GridPane.columnIndex="1" GridPane.rowIndex="8">
                <font>
-                  <Font name="System Bold Italic" size="12.0" />
+                  <Font name="System Bold Italic" size="15.0" />
                </font>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

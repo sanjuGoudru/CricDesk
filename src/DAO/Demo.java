@@ -1,15 +1,15 @@
 package DAO;
 
+import Main.Player;
 import Main.TestCareer;
 
 public class Demo {
 	public static void main(String[] args) throws Exception {
-		TestCareerDAO dao = new TestCareerDAO();
+		PlayerDAO dao = new PlayerDAO();
 		dao.connect();
-		TestCareer tc = new TestCareer(1, 1, 1, 1, 1, 1, 1);
-		tc.setId(29);
-		dao.insertTestCareer(tc);
-		dao.UpdateAvg(29);
+		Player p = new Player("a", 1, 1, 1, 1, "1111-11-1");
+		int id = dao.insertPlayer(p);
+		System.out.println("ID: " + id);
 		dao.close();
 	}
 }

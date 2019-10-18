@@ -134,7 +134,7 @@ public class PlayerDAO {
 		return p;
 	}
 
-	public void insertPlayer(Player p) throws SQLException {
+	public int insertPlayer(Player p) throws SQLException {
 		String name, dob;
 		int role, country, batStyle, bowlStyle;
 		role = p.role;
@@ -144,14 +144,22 @@ public class PlayerDAO {
 		bowlStyle = p.bowlStyle;
 		dob = p.dob;
 		String query = "insert into player (name,role,country,batting_style,bowling_style,dob) values(?,?,?,?,?,?)";
-		PreparedStatement st = con.prepareStatement(query);
-		st.setString(1, name);
-		st.setInt(2, role);
-		st.setInt(3, country);
-		st.setInt(4, batStyle);
-		st.setInt(5, bowlStyle);
-		st.setString(6, dob);
-		st.executeUpdate();
-		st.close();
+		PreparedStatement pst = con.prepareStatement(query);
+		pst.setString(1, name);
+		pst.setInt(2, role);
+		pst.setInt(3, country);
+		pst.setInt(4, batStyle);
+		pst.setInt(5, bowlStyle);
+		pst.setString(6, dob);
+		pst.executeUpdate();
+		pst.close();
+
+		query = "select id from player where name='" + name + "' and role=" + role + " and country=" + country;
+		Statement st = con.createStatement();
+		ResultSet rs = st.executeQuery(query);
+		rs.next();
+		int id = rs.getInt(1);
+		p.setId(id);
+		return id;
 	}
 }

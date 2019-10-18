@@ -35,4 +35,7 @@ public class Player {
 		return id + " " + name + " " + role + " " + country + " " + batStyle + " " + bowlStyle + " " + dob;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
 }

@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import DAO.PlayerDAO;
 import DAO.TestCareerDAO;
 import Main.Player;
+import Main.TestCareer;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -63,8 +64,8 @@ public class InsertPlayerController implements Initializable {
 			"WEST INDIES", "BANGLADESH", "AFGHANISTAN" };
 	String battingStyle[] = { "RIGHT HANDED", "LEFT HANDED" };
 	String bowlingStyle[] = { "RIGHT PACER", "RIGHT SPINNER", "LEFT PACER", "LEFT SPINNER" };
-	String testMatches = "", testRuns = "", testWickets = "", testInnings = "", testBowlingAvg = "",
-			testBattingSR = "", testBowlingSR = "";
+	String testMatches = "", testRuns = "", testWickets = "", testInnings = "", testBowlingAvg = "", testBattingSR = "",
+			testBowlingSR = "";
 	String odiMatches = "", odiRuns = "", odiWickets = "", odiInnings = "", odiBowlingAvg = "", odiBattingSR = "",
 			odiBowlingSR = "";
 	String t20Matches = "", t20Runs = "", t20Wickets = "", t20Innings = "", t20BowlingAvg = "", t20BattingSR = "",
@@ -337,37 +338,59 @@ public class InsertPlayerController implements Initializable {
 		}
 		errorLabel.setStyle("-fx-text-fill: green;");
 		errorLabel.setText("Player successfully saved.");
-		savePlayer();
-		saveCareer();
+		int id = savePlayer();
+		saveTestCareer(id);
+		saveODICareer(id);
+		saveT20Career(id);
 	}
 
-	private void saveCareer() {
+	private void saveTestCareer(int id) {
+		int matches = Integer.parseInt(testMatches);
+		int runs = Integer.parseInt(testRuns);
+		int wickets = Integer.parseInt(testWickets);
+		int innings = Integer.parseInt(testInnings);
+		int bowlAvg = Integer.parseInt(testBowlingAvg);
+		int batSR = Integer.parseInt(testBattingSR);
+		int bowlSR = Integer.parseInt(testBowlingSR);
 		TestCareerDAO tdao = new TestCareerDAO();
 		tdao.connect();
-		
+		TestCareer tc = new TestCareer(matches, runs, wickets, innings, bowlAvg, batSR, bowlSR);
+		tc.setId(id);
+		try {
+			tdao.insertTestCareer(tc);
+			tdao.UpdateAvg(id);
+		} catch (SQLException e) {
+			System.out.println("Error in inserting test career");
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		tdao.close();
 	}
 
-	private void savePlayer() {
+	private int savePlayer() {
 		PlayerDAO pdao = new PlayerDAO();
 		pdao.connect();
 		String name = nameTextField.getText();
-		int role = roleComboBox.getSelectionModel().getSelectedIndex()+1;
-		int country = countryComboBox.getSelectionModel().getSelectedIndex()+1;
-		int batt_s = battingStyleComboBox.getSelectionModel().getSelectedIndex()+1;
-		int bowl_s = bowlingStyleComboBox.getSelectionModel().getSelectedIndex()+1;
+		int role = roleComboBox.getSelectionModel().getSelectedIndex() + 1;
+		int country = countryComboBox.getSelectionModel().getSelectedIndex() + 1;
+		int batt_s = battingStyleComboBox.getSelectionModel().getSelectedIndex() + 1;
+		int bowl_s = bowlingStyleComboBox.getSelectionModel().getSelectedIndex() + 1;
 		LocalDate ld = dobDatePicker.getValue();
 		String dob = ld.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-		System.out.println("///dob :: "+dob);
+		System.out.println("///dob :: " + dob);
 		Player player = new Player(name, role, country, batt_s, bowl_s, dob);
+		int id = -1;
 		try {
-			pdao.insertPlayer(player);
+			id = pdao.insertPlayer(player);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			System.out.println("Error in inserting player");
 			e.printStackTrace();
 		}
 		pdao.close();
+		return id;
 	}
 
 	private void trim() {

@@ -60,10 +60,11 @@ public class CatalogController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		//searchButton.setStyle("-fx-background-color: #fffafa;");
+		// searchButton.setStyle("-fx-background-color: #fffafa;");
 		setComboBoxes();
 		setInitialData();
-
+		contentVBox.prefWidthProperty().bind(scroll.widthProperty());
+		scroll.prefWidthProperty().bind(contentGrid.widthProperty());
 	}
 
 	public void setInitialData() {
@@ -157,10 +158,9 @@ public class CatalogController implements Initializable {
 						System.out.println("Failed to load player GridPane");
 						e.printStackTrace();
 					}
-					mainVBox.getChildren().add(playerGP);
 					playerGP.prefHeightProperty().bind(mainVBox.heightProperty());
 					playerGP.prefWidthProperty().bind(mainVBox.widthProperty());
-					
+					mainVBox.getChildren().add(playerGP);
 				}
 			});
 			contentVBox.getChildren().add(gp);

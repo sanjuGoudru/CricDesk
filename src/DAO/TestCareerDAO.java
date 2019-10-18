@@ -65,33 +65,32 @@ public class TestCareerDAO {
 		return tc;
 	}
 
-	public void insertTestCareer(TestCareer tc) throws SQLException {
+	
+	public void insertTestCareer(TestCareer tc) throws SQLException{
 		int matches, runs, wickets, id,innings;
-		double batting_avg, bowling_avg, batting_sr, bowling_sr;
+		double bowling_avg, batting_sr, bowling_sr;
 		matches = tc.matches;
 		runs = tc.runs;
 		wickets = tc.wickets;
 		id = tc.id;
-		batting_avg = tc.batting_avg;
+		innings = tc.innings;
 		bowling_avg = tc.bowling_avg;
 		batting_sr = tc.batting_sr;
 		bowling_sr = tc.bowling_sr;
 		innings = tc.innings;
-		String query = "insert into test_career values (?,?,?,?,?,?,?,?,?)";
+		String query = "update test_career set matches=? , runs=? , wickets=? , "
+				+ "innings=? , bowling_avg=? , batting_sr=? , bowling_sr=? where id= "+id;
 		PreparedStatement st = con.prepareStatement(query);
-		st.setInt(1, id);
-		st.setInt(2, matches);
-		st.setInt(3, runs);
-		st.setInt(4, wickets);
-		st.setDouble(5, batting_avg);
-		st.setDouble(6, bowling_avg);
-		st.setDouble(7, batting_sr);
-		st.setDouble(8, bowling_sr);
-		st.setInt(9, innings);
+		st.setInt(1, matches);
+		st.setInt(2, runs);
+		st.setInt(3, wickets);
+		st.setInt(4, innings);
+		st.setDouble(5, bowling_avg);
+		st.setDouble(6, batting_sr);
+		st.setDouble(7, bowling_sr);
 		st.executeUpdate();
 		st.close();
 	}
-	
 	public  void  UpdateAvg(int pid) throws Exception{
 		String query = "call updateAvg("+pid+",1)";
 		PreparedStatement st = con.prepareStatement(query);
@@ -155,3 +154,30 @@ public class TestCareerDAO {
 		pst.executeUpdate();
 	}
 }
+
+/*public void insertTestCareer(TestCareer tc) throws SQLException {
+		int matches, runs, wickets, id,innings;
+		double batting_avg, bowling_avg, batting_sr, bowling_sr;
+		matches = tc.matches;
+		runs = tc.runs;
+		wickets = tc.wickets;
+		id = tc.id;
+		batting_avg = tc.batting_avg;
+		bowling_avg = tc.bowling_avg;
+		batting_sr = tc.batting_sr;
+		bowling_sr = tc.bowling_sr;
+		innings = tc.innings;
+		String query = "insert into test_career values (?,?,?,?,?,?,?,?,?)";
+		PreparedStatement st = con.prepareStatement(query);
+		st.setInt(1, id);
+		st.setInt(2, matches);
+		st.setInt(3, runs);
+		st.setInt(4, wickets);
+		st.setDouble(5, batting_avg);
+		st.setDouble(6, bowling_avg);
+		st.setDouble(7, batting_sr);
+		st.setDouble(8, bowling_sr);
+		st.setInt(9, innings);
+		st.executeUpdate();
+		st.close();
+	}*/

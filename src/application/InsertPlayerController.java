@@ -7,6 +7,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import DAO.PlayerDAO;
+import DAO.TestCareerDAO;
 import Main.Player;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -337,6 +338,14 @@ public class InsertPlayerController implements Initializable {
 		errorLabel.setStyle("-fx-text-fill: green;");
 		errorLabel.setText("Player successfully saved.");
 		savePlayer();
+		saveCareer();
+	}
+
+	private void saveCareer() {
+		TestCareerDAO tdao = new TestCareerDAO();
+		tdao.connect();
+		
+		tdao.close();
 	}
 
 	private void savePlayer() {

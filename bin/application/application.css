@@ -25,9 +25,15 @@
 	-fx-background-color:rgba(0,0,0,0);
 }
 #mainVBox{
-	-fx-background-color:#ffe4b5;
+	-fx-background-color:#e0ffff;
 }
 #saveButton{
 	-fx-background-color:blue ;
 	-fx-font-size:20px;
+}
+#mainGrid{
+	-fx-background-color:#e0ffff;
+}
+#mainGridPane{
+	-fx-background-color:#e0ffff;
 }

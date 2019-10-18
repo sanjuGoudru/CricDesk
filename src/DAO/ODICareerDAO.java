@@ -66,29 +66,29 @@ public class ODICareerDAO {
 
 	public void insertODICareer(ODICareer oc) throws SQLException {
 		int matches, runs, wickets, id, innings;
-		double batting_avg, bowling_avg, batting_sr, bowling_sr;
+		double bowling_avg, batting_sr, bowling_sr;
 		matches = oc.matches;
 		runs = oc.runs;
 		wickets = oc.wickets;
 		id = oc.id;
 		innings = oc.innings;
-		batting_avg = oc.batting_avg;
 		bowling_avg = oc.bowling_avg;
 		batting_sr = oc.batting_sr;
 		bowling_sr = oc.bowling_sr;
-		String query = "insert into odi_career values (?,?,?,?,?,?,?,?,?)";
+		innings = oc.innings;
+		String query = "update test_career set matches=? , runs=? , wickets=? , "
+				+ "innings=? , bowling_avg=? , batting_sr=? , bowling_sr=? where id= " + id;
 		PreparedStatement st = con.prepareStatement(query);
-		st.setInt(1, id);
-		st.setInt(2, matches);
-		st.setInt(3, runs);
-		st.setInt(4, wickets);
-		st.setDouble(5, batting_avg);
-		st.setDouble(6, bowling_avg);
-		st.setDouble(7, batting_sr);
-		st.setDouble(8, bowling_sr);
-		st.setInt(9, innings);
+		st.setInt(1, matches);
+		st.setInt(2, runs);
+		st.setInt(3, wickets);
+		st.setInt(4, innings);
+		st.setDouble(5, bowling_avg);
+		st.setDouble(6, batting_sr);
+		st.setDouble(7, bowling_sr);
 		st.executeUpdate();
 		st.close();
+
 	}
 
 	public void updateBattingAverage(int id, double battingAvg) throws SQLException {
@@ -146,8 +146,9 @@ public class ODICareerDAO {
 		pst.setInt(2, id);
 		pst.executeUpdate();
 	}
-	public  void  UpdateAvg(int pid) throws Exception{
-		String query = "call updateAvg("+pid+",2)";
+
+	public void UpdateAvg(int pid) throws Exception {
+		String query = "call updateAvg(" + pid + ",2)";
 		PreparedStatement st = con.prepareStatement(query);
 		st.executeUpdate();
 		st.close();

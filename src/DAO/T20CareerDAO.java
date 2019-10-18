@@ -66,27 +66,26 @@ public class T20CareerDAO {
 
 	public void insertT20Career(T20Career t20Career) throws SQLException {
 		int matches, runs, wickets, id,innings;
-		double batting_avg, bowling_avg, batting_sr, bowling_sr;
+		double bowling_avg, batting_sr, bowling_sr;
 		matches = t20Career.matches;
 		runs = t20Career.runs;
-		innings = t20Career.innings;
 		wickets = t20Career.wickets;
 		id = t20Career.id;
-		batting_avg = t20Career.batting_avg;
+		innings = t20Career.innings;
 		bowling_avg = t20Career.bowling_avg;
 		batting_sr = t20Career.batting_sr;
 		bowling_sr = t20Career.bowling_sr;
-		String query = "insert into t20_career values (?,?,?,?,?,?,?,?,?)";
+		innings = t20Career.innings;
+		String query = "update test_career set matches=? , runs=? , wickets=? , "
+				+ "innings=? , bowling_avg=? , batting_sr=? , bowling_sr=? where id= "+id;
 		PreparedStatement st = con.prepareStatement(query);
-		st.setInt(1, id);
-		st.setInt(2, matches);
-		st.setInt(3, runs);
-		st.setInt(4, wickets);
-		st.setDouble(5, batting_avg);
-		st.setDouble(6, bowling_avg);
-		st.setDouble(7, batting_sr);
-		st.setDouble(8, bowling_sr);
-		st.setInt(9, innings);
+		st.setInt(1, matches);
+		st.setInt(2, runs);
+		st.setInt(3, wickets);
+		st.setInt(4, innings);
+		st.setDouble(5, bowling_avg);
+		st.setDouble(6, batting_sr);
+		st.setDouble(7, bowling_sr);
 		st.executeUpdate();
 		st.close();
 	}

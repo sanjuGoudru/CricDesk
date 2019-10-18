@@ -30,7 +30,20 @@ public class T20Career {
 		batting_sr = bts;
 		bowling_sr = bos;
 	}
-
+	public T20Career(int m, int r, int w, int inn, double boa, double bts, double bos) {
+		isIDSet = false;
+		id = -1;
+		matches = m;
+		runs = r;
+		wickets = w;
+		bowling_avg = boa;
+		batting_sr = bts;
+		bowling_sr = bos;
+		innings = inn;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 
 	public String toString() {

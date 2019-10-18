@@ -61,7 +61,7 @@
             <Insets right="20.0" />
          </GridPane.margin>
          <padding>
-            <Insets left="10.0" right="10.0" />
+            <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
          </padding></TextField>
       <Label text="Dob" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
          <font>
@@ -150,7 +150,7 @@
       </Label>
       <TextField fx:id="matchesTextField" promptText="Matches" GridPane.columnIndex="1" GridPane.rowIndex="9">
          <padding>
-            <Insets left="10.0" right="10.0" />
+            <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
          </padding>
          <GridPane.margin>
             <Insets right="20.0" />
@@ -162,7 +162,7 @@
       </Label>
       <TextField fx:id="runsTextField" promptText="Runs" GridPane.columnIndex="1" GridPane.rowIndex="10">
          <padding>
-            <Insets left="10.0" right="10.0" />
+            <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
          </padding>
          <GridPane.margin>
             <Insets right="20.0" />
@@ -177,7 +177,7 @@
             <Insets right="20.0" />
          </GridPane.margin>
          <padding>
-            <Insets left="10.0" right="10.0" />
+            <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
          </padding></TextField>
       <Label GridPane.rowIndex="12" />
       <Label text="Batting Average" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER">
@@ -187,7 +187,7 @@
       </Label>
       <TextField fx:id="battingAvgTextField" promptText="BattingAvg" GridPane.columnIndex="1" GridPane.rowIndex="12">
          <padding>
-            <Insets left="10.0" right="10.0" />
+            <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
          </padding>
          <GridPane.margin>
             <Insets right="20.0" />
@@ -199,7 +199,7 @@
       </Label>
       <TextField fx:id="bowlingAvgTextField" promptText="BowlingAvg" GridPane.columnIndex="1" GridPane.rowIndex="13">
          <padding>
-            <Insets left="10.0" right="10.0" />
+            <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
          </padding>
          <GridPane.margin>
             <Insets right="20.0" />
@@ -216,14 +216,14 @@
       </Label>
       <TextField fx:id="battingSRTextField" promptText="BattingSR" GridPane.columnIndex="1" GridPane.rowIndex="14">
          <padding>
-            <Insets left="10.0" right="10.0" />
+            <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
          </padding>
          <GridPane.margin>
             <Insets right="20.0" />
          </GridPane.margin></TextField>
       <TextField fx:id="bowlingSRTextField" promptText="BowlingSR" GridPane.columnIndex="1" GridPane.rowIndex="15">
          <padding>
-            <Insets left="10.0" right="10.0" />
+            <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
          </padding>
          <GridPane.margin>
             <Insets right="20.0" />
@@ -240,7 +240,7 @@
       </Label>
       <TextField promptText="Innings" GridPane.columnIndex="1" GridPane.rowIndex="16">
          <padding>
-            <Insets left="10.0" right="10.0" />
+            <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
          </padding>
          <GridPane.margin>
             <Insets right="20.0" />

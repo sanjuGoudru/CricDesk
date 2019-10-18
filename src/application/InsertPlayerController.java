@@ -1,9 +1,13 @@
 package application;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
+import DAO.PlayerDAO;
+import Main.Player;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -251,6 +255,7 @@ public class InsertPlayerController implements Initializable {
 
 	public void saveClick(ActionEvent ae) {
 		errorLabel.setText("");
+		errorLabel.setStyle("-fx-text-fill: red;");
 		if ((nameTextField.getText() == null) || (nameTextField.getText().isEmpty())
 				|| !isAlpha(nameTextField.getText())) {
 			errorLabel.setText("Name field is invalid");
@@ -329,8 +334,31 @@ public class InsertPlayerController implements Initializable {
 			errorLabel.setText("t20 Career data  is invalid");
 			return;
 		}
-
+		errorLabel.setStyle("-fx-text-fill: green;");
 		errorLabel.setText("Player successfully saved.");
+		savePlayer();
+	}
+
+	private void savePlayer() {
+		PlayerDAO pdao = new PlayerDAO();
+		pdao.connect();
+		String name = nameTextField.getText();
+		int role = roleComboBox.getSelectionModel().getSelectedIndex()+1;
+		int country = countryComboBox.getSelectionModel().getSelectedIndex()+1;
+		int batt_s = battingStyleComboBox.getSelectionModel().getSelectedIndex()+1;
+		int bowl_s = bowlingStyleComboBox.getSelectionModel().getSelectedIndex()+1;
+		LocalDate ld = dobDatePicker.getValue();
+		String dob = ld.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+		System.out.println("///dob :: "+dob);
+		Player player = new Player(name, role, country, batt_s, bowl_s, dob);
+		try {
+			pdao.insertPlayer(player);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error in inserting player");
+			e.printStackTrace();
+		}
+		pdao.close();
 	}
 
 	private void trim() {

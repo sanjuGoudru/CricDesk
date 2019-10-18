@@ -6,10 +6,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
-import DAO.PlayerDAO;
-import DAO.TestCareerDAO;
-import Main.Player;
-import Main.TestCareer;
+import DAO.*;
+import Main.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -240,6 +238,8 @@ public class InsertPlayerController implements Initializable {
 		char[] chars = name.toCharArray();
 
 		for (char c : chars) {
+			if (c == ' ')
+				continue;
 			if (!Character.isLetter(c)) {
 				return false;
 			}
@@ -344,14 +344,62 @@ public class InsertPlayerController implements Initializable {
 		saveT20Career(id);
 	}
 
+	private void saveODICareer(int id) {
+		int matches = Integer.parseInt(odiMatches);
+		int runs = Integer.parseInt(odiRuns);
+		int wickets = Integer.parseInt(odiWickets);
+		int innings = Integer.parseInt(odiInnings);
+		double bowlAvg = Integer.parseInt(odiBowlingAvg);
+		double batSR = Integer.parseInt(odiBattingSR);
+		double bowlSR = Integer.parseInt(odiBowlingSR);
+		ODICareerDAO odiDAO = new ODICareerDAO();
+		odiDAO.connect();
+		ODICareer oc = new ODICareer(matches, runs, wickets, innings, bowlAvg, batSR, bowlSR);
+		oc.setId(id);
+		try {
+			odiDAO.insertODICareer(oc);
+			odiDAO.UpdateAvg(id);
+		} catch (SQLException e) {
+			System.out.println("Error in inserting odi career");
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		odiDAO.close();
+	}
+
+	private void saveT20Career(int id) {
+		int matches = Integer.parseInt(t20Matches);
+		int runs = Integer.parseInt(t20Runs);
+		int wickets = Integer.parseInt(t20Wickets);
+		int innings = Integer.parseInt(t20Innings);
+		double bowlAvg = Integer.parseInt(t20BowlingAvg);
+		double batSR = Integer.parseInt(t20BattingSR);
+		double bowlSR = Integer.parseInt(t20BowlingSR);
+		T20CareerDAO t20DAO = new T20CareerDAO();
+		t20DAO.connect();
+		T20Career t20c = new T20Career(matches, runs, wickets, innings, bowlAvg, batSR, bowlSR);
+		t20c.setId(id);
+		try {
+			t20DAO.insertT20Career(t20c);
+			t20DAO.UpdateAvg(id);
+		} catch (SQLException e) {
+			System.out.println("Error in inserting t20 career");
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		t20DAO.close();
+	}
+
 	private void saveTestCareer(int id) {
 		int matches = Integer.parseInt(testMatches);
 		int runs = Integer.parseInt(testRuns);
 		int wickets = Integer.parseInt(testWickets);
 		int innings = Integer.parseInt(testInnings);
-		int bowlAvg = Integer.parseInt(testBowlingAvg);
-		int batSR = Integer.parseInt(testBattingSR);
-		int bowlSR = Integer.parseInt(testBowlingSR);
+		double bowlAvg = Integer.parseInt(testBowlingAvg);
+		double batSR = Integer.parseInt(testBattingSR);
+		double bowlSR = Integer.parseInt(testBowlingSR);
 		TestCareerDAO tdao = new TestCareerDAO();
 		tdao.connect();
 		TestCareer tc = new TestCareer(matches, runs, wickets, innings, bowlAvg, batSR, bowlSR);
@@ -385,7 +433,6 @@ public class InsertPlayerController implements Initializable {
 		try {
 			id = pdao.insertPlayer(player);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			System.out.println("Error in inserting player");
 			e.printStackTrace();
 		}
@@ -426,6 +473,15 @@ public class InsertPlayerController implements Initializable {
 				return false;
 			}
 		}
-		return true;
+		int count = 0;
+		for (int i = 0; i < s.length(); i++) {
+			char c = s.charAt(i);
+			if (c == '.')
+				count++;
+		}
+		if (count == 0 || count == 1)
+			return true;
+		else
+			return false;
 	}
 }

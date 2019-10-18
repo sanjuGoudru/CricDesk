@@ -76,7 +76,7 @@ public class ODICareerDAO {
 		batting_sr = oc.batting_sr;
 		bowling_sr = oc.bowling_sr;
 		innings = oc.innings;
-		String query = "update test_career set matches=? , runs=? , wickets=? , "
+		String query = "update odi_career set matches=? , runs=? , wickets=? , "
 				+ "innings=? , bowling_avg=? , batting_sr=? , bowling_sr=? where id= " + id;
 		PreparedStatement st = con.prepareStatement(query);
 		st.setInt(1, matches);

@@ -101,4 +101,18 @@ public class MainController implements Initializable {
 		GridPane.setHalignment(gp, HPos.CENTER);
 		GridPane.setValignment(gp, VPos.CENTER);
 	}
+	public void aboutClick() {
+		centerGridPane.getChildren().clear();
+		try {
+			gp = FXMLLoader.load(getClass().getResource("/application/About.fxml"));
+		} catch (Exception e) {
+			System.out.println("Error loading File");
+			e.printStackTrace();
+		}
+		centerGridPane.add(gp, 0, 0, 2, 3);
+		gp.prefWidthProperty().bind(centerGridPane.widthProperty());
+		gp.prefHeightProperty().bind(centerGridPane.heightProperty());
+		GridPane.setHalignment(gp, HPos.CENTER);
+		GridPane.setValignment(gp, VPos.CENTER);
+	}
 }
